@@ -34,12 +34,26 @@ public class AppMediator extends Application {
   }
 
   public MasterToDetailState getDetailPreviousScreenState() {
+    MasterToDetailState state = masterToDetailState;
+    masterToDetailState = null;
+    return state;
+  }
+
+  public DetailToMasterState getMasterNextScreenState() {
+    DetailToMasterState state = detailToMasterState;
+    detailToMasterState = null;
+    return state;
+  }
+
+  /*
+  public MasterToDetailState getDetailPreviousScreenState() {
     return masterToDetailState;
   }
 
   public DetailToMasterState getMasterNextScreenState() {
     return detailToMasterState;
   }
+  */
 
   public void setMasterNextScreenState(MasterToDetailState state) {
     masterToDetailState=state;

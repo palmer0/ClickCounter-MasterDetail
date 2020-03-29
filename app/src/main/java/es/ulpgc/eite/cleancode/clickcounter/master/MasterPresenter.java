@@ -88,18 +88,18 @@ public class MasterPresenter implements MasterContract.Presenter {
   public void onListPressed(CounterData counter) {
     // Log.e(TAG, "onListPressed()");
 
-    model.onUpdateCounter(counter);
+    model.onIncrementCounter(counter);
     model.onIncrementNumOfClicks();
 
-    /*
     router.passStateToNextScreen(new MasterToDetailState(
         model.getStoredCounter(counter.id), model.getStoredNumOfClick()
     ));
-    */
 
+    /*
     router.passStateToNextScreen(
         new MasterToDetailState(counter, model.getStoredNumOfClick())
     );
+    */
 
     router.navigateToNextScreen();
   }

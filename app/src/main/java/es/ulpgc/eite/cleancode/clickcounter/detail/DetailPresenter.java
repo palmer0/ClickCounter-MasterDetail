@@ -2,6 +2,7 @@ package es.ulpgc.eite.cleancode.clickcounter.detail;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 
 public class DetailPresenter implements DetailContract.Presenter {
@@ -59,6 +60,10 @@ public class DetailPresenter implements DetailContract.Presenter {
   @Override
   public void onBackPressed() {
     // Log.e(TAG, "onBackPressed()");
+
+    router.passStateToPreviousScreen(new DetailToMasterState(
+        model.getStoredCounter(), model.getStoredNumOfClick()
+    ));
   }
 
   @Override

@@ -46,11 +46,11 @@ public interface MasterContract {
     void onRestartScreen(List<CounterData> counters, Integer clicks);
     void onAddCounter(CounterData counter);
 
-    //CounterData getStoredCounter(Long id);
+    CounterData getStoredCounter(Long id);
 
     Integer getStoredNumOfClick();
 
-    void onUpdateCounter(CounterData counter);
+    void onIncrementCounter(CounterData counter);
 
     void onIncrementNumOfClicks();
   }

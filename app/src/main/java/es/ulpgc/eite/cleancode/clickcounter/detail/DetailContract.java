@@ -16,46 +16,30 @@ public interface DetailContract {
 
   interface Presenter {
     void injectView(WeakReference<View> view);
-
     void injectModel(Model model);
-
     void injectRouter(Router router);
 
     void onResume();
-
     void onStart();
-
     void onRestart();
-
     void onBackPressed();
-
     void onPause();
-
     void onDestroy();
-
     void onButtonPressed();
   }
 
   interface Model {
     CounterData getStoredCounter();
-
     Integer getStoredNumOfClick();
-
     void onIncrementNumOfClicks();
-
     void onRestartScreen(CounterData counter, Integer clicks);
-
     void onDataFromPreviousScreen(CounterData counter, Integer clicks);
-
     void onIncrementCounter();
   }
 
   interface Router {
 
-    //void navigateToNextScreen();
-
     MasterToDetailState getStateFromPreviousScreen();
-
     void passStateToPreviousScreen(DetailToMasterState state);
   }
 }

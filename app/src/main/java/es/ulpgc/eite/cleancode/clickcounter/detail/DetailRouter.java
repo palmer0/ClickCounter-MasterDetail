@@ -14,16 +14,6 @@ public class DetailRouter implements DetailContract.Router {
     this.mediator = mediator;
   }
 
-  /*
-  @Override
-  public void navigateToNextScreen() {
-    Context context = mediator.getApplicationContext();
-    Intent intent = new Intent(context, DetailActivity.class);
-    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    context.startActivity(intent);
-  }
-  */
-
   @Override
   public void passStateToPreviousScreen(DetailToMasterState state) {
     mediator.setDetailPreviousScreenState(state);
