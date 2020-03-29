@@ -23,6 +23,20 @@ public class MasterModel implements MasterContract.Model {
     return counters;
   }
 
+  /*
+  @Override
+  public CounterData getStoredCounter(Long id) {
+    // Log.e(TAG, "getStoredCounter()");
+
+    for(CounterData counter: counters) {
+      if(counter.id == id) {
+        return counter;
+      }
+    }
+
+    return null;
+  }
+  */
 
   @Override
   public Integer getStoredNumOfClick() {
@@ -41,9 +55,10 @@ public class MasterModel implements MasterContract.Model {
   }
 
   @Override
-  public void onRestartScreen(List<CounterData> counters) {
+  public void onRestartScreen(List<CounterData> counters, Integer clicks) {
     // Log.e(TAG, "onRestartScreen()");
     this.counters =counters;
+    this.clicks = clicks;
   }
 
   @Override
@@ -52,9 +67,10 @@ public class MasterModel implements MasterContract.Model {
   }
 
   @Override
-  public void onDataFromNextScreen(Integer clicks) {
+  public void onDataFromNextScreen(CounterData counter, Integer clicks) {
     // Log.e(TAG, "onDataFromNextScreen()");
     this.clicks=clicks;
+    onUpdateCounter( counter);
   }
 
   /*

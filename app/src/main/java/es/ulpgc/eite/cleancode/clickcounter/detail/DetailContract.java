@@ -37,9 +37,11 @@ public interface DetailContract {
   interface Model {
     CounterData getStoredCounter();
 
-    void onRestartScreen(CounterData counter);
+    Integer getStoredNumOfClick();
 
-    void onDataFromPreviousScreen(CounterData counter);
+    void onRestartScreen(CounterData counter, Integer clicks);
+
+    void onDataFromPreviousScreen(CounterData counter, Integer clicks);
   }
 
   interface Router {

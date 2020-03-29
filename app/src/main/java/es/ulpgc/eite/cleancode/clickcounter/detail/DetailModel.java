@@ -7,6 +7,7 @@ public class DetailModel implements DetailContract.Model {
   public static String TAG = DetailModel.class.getSimpleName();
 
   private CounterData counter;
+  private Integer clicks;
 
   @Override
   public CounterData getStoredCounter() {
@@ -15,14 +16,23 @@ public class DetailModel implements DetailContract.Model {
   }
 
   @Override
-  public void onRestartScreen(CounterData counter) {
+  public Integer getStoredNumOfClick() {
+    // Log.e(TAG, "getStoredNumOfClick()");
+    return clicks;
+  }
+
+
+  @Override
+  public void onRestartScreen(CounterData counter, Integer clicks) {
     // Log.e(TAG, "onRestartScreen()");
     this.counter =counter;
+    this.clicks=clicks;
   }
 
   @Override
-  public void onDataFromPreviousScreen(CounterData counter) {
+  public void onDataFromPreviousScreen(CounterData counter, Integer clicks) {
     // Log.e(TAG, "onDataFromPreviousScreen()");
     this.counter =counter;
+    this.clicks=clicks;
   }
 }

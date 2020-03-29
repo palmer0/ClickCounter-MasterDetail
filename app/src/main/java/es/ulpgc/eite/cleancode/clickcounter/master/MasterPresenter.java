@@ -35,7 +35,7 @@ public class MasterPresenter implements MasterContract.Presenter {
     // Log.e(TAG, "onRestart()");
 
     // update the model if is necessary
-    model.onRestartScreen(state.counters);
+    model.onRestartScreen(state.counters, state.clicks);
   }
 
   @Override
@@ -47,12 +47,13 @@ public class MasterPresenter implements MasterContract.Presenter {
     if (savedState != null) {
 
       // update the model if is necessary
-      model.onDataFromNextScreen(savedState.clicks);
+      model.onDataFromNextScreen(savedState.counter, savedState.clicks);
     }
 
 
     // call the model and update the state
     state.counters = model.getStoredCounterList();
+    state.clicks = model.getStoredNumOfClick();
 
     // update the view
     view.get().onDataUpdated(state);
@@ -89,6 +90,12 @@ public class MasterPresenter implements MasterContract.Presenter {
 
     model.onUpdateCounter(counter);
     model.onIncrementNumOfClicks();
+
+    /*
+    router.passStateToNextScreen(new MasterToDetailState(
+        model.getStoredCounter(counter.id), model.getStoredNumOfClick()
+    ));
+    */
 
     router.passStateToNextScreen(
         new MasterToDetailState(counter, model.getStoredNumOfClick())

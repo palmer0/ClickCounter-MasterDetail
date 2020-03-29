@@ -42,9 +42,12 @@ public interface MasterContract {
   interface Model {
     List<CounterData> getStoredCounterList();
     //void onDataFromNextScreen(CounterData counter);
-    void onDataFromNextScreen(Integer clicks);
-    void onRestartScreen(List<CounterData> counters);
+    void onDataFromNextScreen(CounterData counter, Integer clicks);
+    void onRestartScreen(List<CounterData> counters, Integer clicks);
     void onAddCounter(CounterData counter);
+
+    //CounterData getStoredCounter(Long id);
+
     Integer getStoredNumOfClick();
 
     void onUpdateCounter(CounterData counter);

@@ -2,6 +2,7 @@ package es.ulpgc.eite.cleancode.clickcounter.master;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
@@ -28,6 +29,9 @@ public class MasterRouter implements MasterContract.Router {
 
   @Override
   public void passStateToNextScreen(MasterToDetailState state) {
+    Log.e(TAG, "counter: " + state.counter);
+    Log.e(TAG, "clicks: " + state.clicks);
+
     mediator.setMasterNextScreenState(state);
   }
 
