@@ -9,30 +9,31 @@ public class MasterModel implements MasterContract.Model {
 
   public static String TAG = MasterModel.class.getSimpleName();
 
-  private List<CounterData> dataSource;
+  private List<CounterData> counters;
 
   public MasterModel() {
-    dataSource = new ArrayList<>();
+    counters = new ArrayList<>();
   }
 
   @Override
   public List<CounterData> getStoredDataSource() {
     // Log.e(TAG, "getStoredDataSource()");
-    return dataSource;
+    return counters;
   }
 
   @Override
-  public void onRestartScreen(List<CounterData> dataSource) {
+  public void onRestartScreen(List<CounterData> counters) {
     // Log.e(TAG, "onRestartScreen()");
+    this.counters =counters;
   }
 
   @Override
-  public void onAddData(CounterData data) {
-    dataSource.add(data);
+  public void onAddData(CounterData counter) {
+    counters.add(counter);
   }
 
   @Override
-  public void onDataFromNextScreen(CounterData data) {
+  public void onDataFromNextScreen(CounterData counter) {
     // Log.e(TAG, "onDataFromNextScreen()");
   }
 

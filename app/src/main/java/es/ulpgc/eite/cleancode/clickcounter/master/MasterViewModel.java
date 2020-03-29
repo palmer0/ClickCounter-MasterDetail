@@ -8,5 +8,5 @@ import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
 public class MasterViewModel {
 
   // put the view state here
-  public List<CounterData> dataSource = new ArrayList<>();
+  public List<CounterData> counters = new ArrayList<>();
 }

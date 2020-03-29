@@ -6,7 +6,6 @@ import java.util.List;
 import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
-import es.ulpgc.eite.cleancode.clickcounter.detail.DetailViewModel;
 
 public interface MasterContract {
 
@@ -37,14 +36,14 @@ public interface MasterContract {
 
     void onButtonPressed();
 
-    void onListPressed(DetailViewModel data);
+    void onListPressed(CounterData counter);
   }
 
   interface Model {
     List<CounterData> getStoredDataSource();
-    void onDataFromNextScreen(CounterData data);
-    void onRestartScreen(List<CounterData> dataSource);
-    void onAddData(CounterData data);
+    void onDataFromNextScreen(CounterData counter);
+    void onRestartScreen(List<CounterData> counters);
+    void onAddData(CounterData counter);
   }
 
   interface Router {

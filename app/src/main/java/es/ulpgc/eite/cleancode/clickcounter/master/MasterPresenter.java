@@ -35,7 +35,7 @@ public class MasterPresenter implements MasterContract.Presenter {
     // Log.e(TAG, "onRestart()");
 
     // update the model if is necessary
-    model.onRestartScreen(state.dataSource);
+    model.onRestartScreen(state.counters);
   }
 
   @Override
@@ -52,7 +52,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 
 
     // call the model and update the state
-    state.dataSource = model.getStoredDataSource();
+    state.counters = model.getStoredDataSource();
 
     // update the view
     view.get().onDataUpdated(state);

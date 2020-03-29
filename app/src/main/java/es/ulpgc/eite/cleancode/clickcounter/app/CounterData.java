@@ -9,11 +9,11 @@ public class CounterData {
 
   // put the view state here
   public Long id;
-  public Integer counter;
+  public Integer value;
 
   public CounterData() {
     id = generateUniqueId();
-    counter = 0;
+    value = 0;
   }
 
   /**
@@ -51,6 +51,6 @@ public class CounterData {
 
   @Override
   public String toString() {
-    return String.valueOf(counter);
+    return String.valueOf(value);
   }
 }

@@ -37,9 +37,9 @@ public interface DetailContract {
   interface Model {
     CounterData getStoredData();
 
-    void onRestartScreen(CounterData data);
+    void onRestartScreen(CounterData counter);
 
-    void onDataFromPreviousScreen(CounterData data);
+    void onDataFromPreviousScreen(CounterData counter);
   }
 
   interface Router {

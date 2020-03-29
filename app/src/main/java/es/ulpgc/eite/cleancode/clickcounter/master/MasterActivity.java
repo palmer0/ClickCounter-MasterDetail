@@ -7,7 +7,7 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.eite.cleancode.clickcounter.R;
-import es.ulpgc.eite.cleancode.clickcounter.detail.DetailViewModel;
+import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
 
 public class MasterActivity
     extends AppCompatActivity implements MasterContract.View {
@@ -37,7 +37,7 @@ public class MasterActivity
   protected void onResume() {
     super.onResume();
 
-    // load the counter
+    // load the value
     presenter.onResume();
   }
 
@@ -73,11 +73,11 @@ public class MasterActivity
     // deal with the datasource
 
     ((ListView) findViewById(R.id.list)).setAdapter(new MasterAdapter(
-            this, viewModel.dataSource, new View.OnClickListener() {
+            this, viewModel.counters, new View.OnClickListener() {
 
           @Override
           public void onClick(View view) {
-            DetailViewModel data = (DetailViewModel) view.getTag();
+            CounterData data = (CounterData) view.getTag();
             presenter.onListPressed(data);
           }
         })

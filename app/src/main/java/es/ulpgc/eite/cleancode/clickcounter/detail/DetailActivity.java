@@ -35,7 +35,7 @@ public class DetailActivity
   protected void onResume() {
     super.onResume();
 
-    // load the counter
+    // load the value
     presenter.onResume();
   }
 
@@ -64,8 +64,8 @@ public class DetailActivity
   public void onDataUpdated(DetailViewModel viewModel) {
     //Log.e(TAG, "onDataUpdated()");
 
-    // deal with the data
-    String data = String.valueOf(viewModel.data);
+    // deal with the counter
+    String data = String.valueOf(viewModel.counter);
     ((TextView) findViewById(R.id.data)).setText(data);
   }
 
