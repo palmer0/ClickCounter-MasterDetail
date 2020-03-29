@@ -7,11 +7,12 @@ import java.util.UUID;
 public class DetailViewModel {
 
   // put the view state here
-  public Long uniqueId;
-  public String counterVal;
+  public Long id;
+  public Integer counter;
 
   public DetailViewModel() {
-    uniqueId = generateUniqueId();
+    id = generateUniqueId();
+    counter = 0;
   }
 
   /**

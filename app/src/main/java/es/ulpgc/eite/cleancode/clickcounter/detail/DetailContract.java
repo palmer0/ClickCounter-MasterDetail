@@ -34,9 +34,9 @@ public interface DetailContract {
   }
 
   interface Model {
-    String getStoredData();
+    DetailViewModel getStoredData();
 
-    //void onDataFromNextScreen(String data);
+    //void onDataFromNextScreen(String datasource);
 
     void onRestartScreen(DetailViewModel data);
 

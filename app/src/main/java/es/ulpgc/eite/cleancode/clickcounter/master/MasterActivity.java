@@ -37,7 +37,7 @@ public class MasterActivity
   protected void onResume() {
     super.onResume();
 
-    // load the counterVal
+    // load the counter
     presenter.onResume();
   }
 
@@ -62,19 +62,23 @@ public class MasterActivity
     presenter.onDestroy();
   }
 
+  public void onButtonPressed(View view) {
+    presenter.onButtonPressed();
+  }
+
   @Override
   public void onDataUpdated(MasterViewModel viewModel) {
     //Log.e(TAG, "onDataUpdated()");
 
-    // deal with the data
+    // deal with the datasource
 
-    ((ListView) findViewById(R.id.listView)).setAdapter(new MasterAdapter(
-            this, viewModel.data, new View.OnClickListener() {
+    ((ListView) findViewById(R.id.list)).setAdapter(new MasterAdapter(
+            this, viewModel.datasource, new View.OnClickListener() {
 
           @Override
           public void onClick(View view) {
             DetailViewModel data = (DetailViewModel) view.getTag();
-
+            presenter.onListPressed(data);
           }
         })
     );
@@ -84,4 +88,6 @@ public class MasterActivity
   public void injectPresenter(MasterContract.Presenter presenter) {
     this.presenter = presenter;
   }
+
+
 }

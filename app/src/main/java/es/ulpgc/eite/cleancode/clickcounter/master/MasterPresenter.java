@@ -3,6 +3,7 @@ package es.ulpgc.eite.cleancode.clickcounter.master;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
+import es.ulpgc.eite.cleancode.clickcounter.detail.DetailViewModel;
 
 public class MasterPresenter implements MasterContract.Presenter {
 
@@ -32,7 +33,7 @@ public class MasterPresenter implements MasterContract.Presenter {
     if (savedState != null) {
 
       // update the model if is necessary
-      model.onDataFromPreviousScreen(savedState.counterVal);
+      model.onDataFromPreviousScreen(savedState.counter);
     }
     */
   }
@@ -42,7 +43,7 @@ public class MasterPresenter implements MasterContract.Presenter {
     // Log.e(TAG, "onRestart()");
 
     // update the model if is necessary
-    model.onRestartScreen(state.data);
+    model.onRestartScreen(state.datasource);
   }
 
   @Override
@@ -59,7 +60,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 
 
     // call the model and update the state
-    state.data = model.getStoredData();
+    state.datasource = model.getStoredData();
 
     // update the view
     view.get().onDataUpdated(state);
@@ -79,6 +80,20 @@ public class MasterPresenter implements MasterContract.Presenter {
   @Override
   public void onDestroy() {
     // Log.e(TAG, "onDestroy()");
+  }
+
+  @Override
+  public void onButtonPressed() {
+    // Log.e(TAG, "onButtonPressed()");
+
+    model.onAddData(new DetailViewModel());
+
+    onResume();
+  }
+
+  @Override
+  public void onListPressed(DetailViewModel data) {
+    // Log.e(TAG, "onListPressed()");
   }
 
   @Override

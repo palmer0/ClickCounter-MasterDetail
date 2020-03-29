@@ -4,14 +4,11 @@ public class DetailModel implements DetailContract.Model {
 
   public static String TAG = DetailModel.class.getSimpleName();
 
-  private String data;
+  private DetailViewModel data;
 
-  public DetailModel(String data) {
-    this.data = data;
-  }
 
   @Override
-  public String getStoredData() {
+  public DetailViewModel getStoredData() {
     // Log.e(TAG, "getStoredData()");
     return data;
   }
@@ -22,7 +19,7 @@ public class DetailModel implements DetailContract.Model {
   }
 
 //  @Override
-//  public void onDataFromNextScreen(String data) {
+//  public void onDataFromNextScreen(String datasource) {
 //    // Log.e(TAG, "onDataFromNextScreen()");
 //  }
 

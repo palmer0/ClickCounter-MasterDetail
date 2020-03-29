@@ -9,21 +9,26 @@ public class MasterModel implements MasterContract.Model {
 
   public static String TAG = MasterModel.class.getSimpleName();
 
-  private List<DetailViewModel> data;
+  private List<DetailViewModel> datasource;
 
   public MasterModel() {
-    data = new ArrayList<>();
+    datasource = new ArrayList<>();
   }
 
   @Override
   public List<DetailViewModel> getStoredData() {
     // Log.e(TAG, "getStoredData()");
-    return data;
+    return datasource;
   }
 
   @Override
-  public void onRestartScreen(List<DetailViewModel> data) {
+  public void onRestartScreen(List<DetailViewModel> datasource) {
     // Log.e(TAG, "onRestartScreen()");
+  }
+
+  @Override
+  public void onAddData(DetailViewModel data) {
+    datasource.add(data);
   }
 
   @Override
@@ -33,7 +38,7 @@ public class MasterModel implements MasterContract.Model {
 
   /*
   @Override
-  public void onDataFromPreviousScreen(String data) {
+  public void onDataFromPreviousScreen(String datasource) {
     // Log.e(TAG, "onDataFromPreviousScreen()");
   }
   */

@@ -33,6 +33,10 @@ public interface MasterContract {
     void onPause();
 
     void onDestroy();
+
+    void onButtonPressed();
+
+    void onListPressed(DetailViewModel data);
   }
 
   interface Model {
@@ -40,9 +44,11 @@ public interface MasterContract {
 
     void onDataFromNextScreen(DetailViewModel data);
 
-    void onRestartScreen(List<DetailViewModel> data);
+    void onRestartScreen(List<DetailViewModel> datasource);
 
-    //void onDataFromPreviousScreen(String data);
+    void onAddData(DetailViewModel data);
+
+    //void onDataFromPreviousScreen(String datasource);
   }
 
   interface Router {

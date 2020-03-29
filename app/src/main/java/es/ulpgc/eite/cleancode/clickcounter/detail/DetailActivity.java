@@ -1,7 +1,6 @@
 package es.ulpgc.eite.cleancode.clickcounter.detail;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,7 +34,7 @@ public class DetailActivity
   protected void onResume() {
     super.onResume();
 
-    // load the counterVal
+    // load the counter
     presenter.onResume();
   }
 
@@ -64,8 +63,8 @@ public class DetailActivity
   public void onDataUpdated(DetailViewModel viewModel) {
     //Log.e(TAG, "onDataUpdated()");
 
-    // deal with the data
-    ((TextView) findViewById(R.id.data)).setText(viewModel.counterVal);
+    // deal with the datasource
+    //((TextView) findViewById(R.id.data)).setText(viewModel.counter);
   }
 
   @Override

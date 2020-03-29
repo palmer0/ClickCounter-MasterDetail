@@ -8,5 +8,5 @@ import es.ulpgc.eite.cleancode.clickcounter.detail.DetailViewModel;
 public class MasterViewModel {
 
   // put the view state here
-  public List<DetailViewModel> data = new ArrayList<>();
+  public List<DetailViewModel> datasource = new ArrayList<>();
 }

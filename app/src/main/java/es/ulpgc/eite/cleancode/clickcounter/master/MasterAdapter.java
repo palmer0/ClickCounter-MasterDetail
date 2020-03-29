@@ -19,9 +19,10 @@ public class MasterAdapter extends ArrayAdapter<DetailViewModel> {
 
 
   public MasterAdapter(
-      Context context, List<DetailViewModel> items, View.OnClickListener listener) {
+      Context ctx, List<DetailViewModel> items,
+      View.OnClickListener listener) {
 
-    super(context, 0, items);
+    super(ctx, 0, items);
 
     itemList = items;
     clickListener = listener;
@@ -40,7 +41,7 @@ public class MasterAdapter extends ArrayAdapter<DetailViewModel> {
 
   @Override
   public long getItemId(int position) {
-    return getItem(position).uniqueId;
+    return getItem(position).id;
   }
 
   @Override
@@ -56,8 +57,9 @@ public class MasterAdapter extends ArrayAdapter<DetailViewModel> {
     itemView.setTag(itemList.get(position));
     itemView.setOnClickListener(clickListener);
 
-    final TextView contentView = itemView.findViewById(R.id.content);
-    contentView.setText(itemList.get(position).counterVal);
+    final TextView contentView = itemView.findViewById(R.id.data);
+    Integer data = itemList.get(position).counter;
+    contentView.setText(String.valueOf(data));
 
     return itemView;
   }

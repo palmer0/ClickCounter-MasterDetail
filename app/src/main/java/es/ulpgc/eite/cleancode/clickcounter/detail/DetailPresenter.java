@@ -53,12 +53,12 @@ public class DetailPresenter implements DetailContract.Presenter {
     if (savedState != null) {
 
       // update the model if is necessary
-      model.onDataFromNextScreen(savedState.counterVal);
+      model.onDataFromNextScreen(savedState.counter);
     }
     */
 
     // call the model and update the state
-    state.counterVal = model.getStoredData();
+    state = (DetailState) model.getStoredData();
 
     // update the view
     view.get().onDataUpdated(state);
