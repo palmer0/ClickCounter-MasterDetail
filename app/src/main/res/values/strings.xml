@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">Click Counter</string>
+    <string name="title_master">Click Counter</string>
+    <string name="title_detail">Click Counter</string>
+
+</resources>
