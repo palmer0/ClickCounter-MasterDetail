@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='Click Counter'
+rootProject.name='ClickCounter-MasterDetail'
