@@ -35,7 +35,7 @@ public interface DetailContract {
   }
 
   interface Model {
-    CounterData getStoredData();
+    CounterData getStoredCounter();
 
     void onRestartScreen(CounterData counter);
 
@@ -43,7 +43,8 @@ public interface DetailContract {
   }
 
   interface Router {
-    void navigateToNextScreen();
+
+    //void navigateToNextScreen();
 
     MasterToDetailState getStateFromPreviousScreen();
 

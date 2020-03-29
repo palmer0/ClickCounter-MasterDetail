@@ -10,15 +10,34 @@ public class MasterModel implements MasterContract.Model {
   public static String TAG = MasterModel.class.getSimpleName();
 
   private List<CounterData> counters;
+  public Integer clicks;
 
   public MasterModel() {
     counters = new ArrayList<>();
+    clicks=0;
   }
 
   @Override
-  public List<CounterData> getStoredDataSource() {
-    // Log.e(TAG, "getStoredDataSource()");
+  public List<CounterData> getStoredCounterList() {
+    // Log.e(TAG, "getStoredCounterList()");
     return counters;
+  }
+
+
+  @Override
+  public Integer getStoredNumOfClick() {
+    // Log.e(TAG, "getStoredNumOfClick()");
+    return clicks;
+  }
+
+  @Override
+  public void onUpdateCounter(CounterData counter) {
+    counters.get(counters.indexOf(counter)).value++;
+  }
+
+  @Override
+  public void onIncrementNumOfClicks() {
+    clicks++;
   }
 
   @Override
@@ -28,13 +47,14 @@ public class MasterModel implements MasterContract.Model {
   }
 
   @Override
-  public void onAddData(CounterData counter) {
+  public void onAddCounter(CounterData counter) {
     counters.add(counter);
   }
 
   @Override
   public void onDataFromNextScreen(Integer clicks) {
     // Log.e(TAG, "onDataFromNextScreen()");
+    this.clicks=clicks;
   }
 
   /*

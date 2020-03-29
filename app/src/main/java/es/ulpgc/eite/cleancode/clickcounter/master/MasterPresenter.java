@@ -4,6 +4,7 @@ import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
+import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 
 public class MasterPresenter implements MasterContract.Presenter {
 
@@ -51,7 +52,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 
 
     // call the model and update the state
-    state.counters = model.getStoredDataSource();
+    state.counters = model.getStoredCounterList();
 
     // update the view
     view.get().onDataUpdated(state);
@@ -77,7 +78,7 @@ public class MasterPresenter implements MasterContract.Presenter {
   public void onButtonPressed() {
     // Log.e(TAG, "onButtonPressed()");
 
-    model.onAddData(new CounterData());
+    model.onAddCounter(new CounterData());
 
     onResume();
   }
@@ -85,6 +86,15 @@ public class MasterPresenter implements MasterContract.Presenter {
   @Override
   public void onListPressed(CounterData counter) {
     // Log.e(TAG, "onListPressed()");
+
+    model.onUpdateCounter(counter);
+    model.onIncrementNumOfClicks();
+
+    router.passStateToNextScreen(
+        new MasterToDetailState(counter, model.getStoredNumOfClick())
+    );
+
+    router.navigateToNextScreen();
   }
 
   @Override

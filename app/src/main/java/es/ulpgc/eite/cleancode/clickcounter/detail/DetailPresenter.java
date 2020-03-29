@@ -48,7 +48,7 @@ public class DetailPresenter implements DetailContract.Presenter {
     // Log.e(TAG, "onResume()");
 
     // call the model and update the state
-    state.counter = model.getStoredData();
+    state.counter = model.getStoredCounter();
 
     // update the view
     view.get().onDataUpdated(state);

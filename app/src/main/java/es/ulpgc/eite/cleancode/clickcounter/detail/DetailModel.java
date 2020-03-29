@@ -9,8 +9,8 @@ public class DetailModel implements DetailContract.Model {
   private CounterData counter;
 
   @Override
-  public CounterData getStoredData() {
-    // Log.e(TAG, "getStoredData()");
+  public CounterData getStoredCounter() {
+    // Log.e(TAG, "getStoredCounter()");
     return counter;
   }
 

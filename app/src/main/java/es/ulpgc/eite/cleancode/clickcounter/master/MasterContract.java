@@ -40,11 +40,16 @@ public interface MasterContract {
   }
 
   interface Model {
-    List<CounterData> getStoredDataSource();
+    List<CounterData> getStoredCounterList();
     //void onDataFromNextScreen(CounterData counter);
     void onDataFromNextScreen(Integer clicks);
     void onRestartScreen(List<CounterData> counters);
-    void onAddData(CounterData counter);
+    void onAddCounter(CounterData counter);
+    Integer getStoredNumOfClick();
+
+    void onUpdateCounter(CounterData counter);
+
+    void onIncrementNumOfClicks();
   }
 
   interface Router {

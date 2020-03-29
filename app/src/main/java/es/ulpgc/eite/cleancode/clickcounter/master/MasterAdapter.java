@@ -57,7 +57,7 @@ public class MasterAdapter extends ArrayAdapter<CounterData> {
     itemView.setTag(itemList.get(position));
     itemView.setOnClickListener(clickListener);
 
-    final TextView contentView = itemView.findViewById(R.id.data);
+    final TextView contentView = itemView.findViewById(R.id.counter);
     Integer data = itemList.get(position).value;
     contentView.setText(String.valueOf(data));
 

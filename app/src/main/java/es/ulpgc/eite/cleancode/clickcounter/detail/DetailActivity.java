@@ -66,7 +66,7 @@ public class DetailActivity
 
     // deal with the counter
     String data = String.valueOf(viewModel.counter);
-    ((TextView) findViewById(R.id.data)).setText(data);
+    ((TextView) findViewById(R.id.counter)).setText(data);
   }
 
   @Override
