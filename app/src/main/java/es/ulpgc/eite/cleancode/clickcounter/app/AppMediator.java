@@ -45,15 +45,6 @@ public class AppMediator extends Application {
     return state;
   }
 
-  /*
-  public MasterToDetailState getDetailPreviousScreenState() {
-    return masterToDetailState;
-  }
-
-  public DetailToMasterState getMasterNextScreenState() {
-    return detailToMasterState;
-  }
-  */
 
   public void setMasterNextScreenState(MasterToDetailState state) {
     masterToDetailState=state;

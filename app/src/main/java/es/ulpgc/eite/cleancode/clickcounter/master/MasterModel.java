@@ -68,14 +68,7 @@ public class MasterModel implements MasterContract.Model {
   public void onDataFromNextScreen(CounterData counter, Integer clicks) {
     // Log.e(TAG, "onDataFromNextScreen()");
     this.clicks=clicks;
-    //counters.get(counters.indexOf(counter)).value = counter.value;
     counters.set(counters.indexOf(counter), counter);
   }
 
-  /*
-  @Override
-  public void onDataFromNextScreen(CounterData counter) {
-    // Log.e(TAG, "onDataFromNextScreen()");
-  }
-  */
 }

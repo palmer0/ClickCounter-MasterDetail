@@ -95,12 +95,6 @@ public class MasterPresenter implements MasterContract.Presenter {
         model.getStoredCounter(counter.id), model.getStoredNumOfClick()
     ));
 
-    /*
-    router.passStateToNextScreen(
-        new MasterToDetailState(counter, model.getStoredNumOfClick())
-    );
-    */
-
     router.navigateToNextScreen();
   }
 
