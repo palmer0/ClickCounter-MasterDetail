@@ -73,7 +73,7 @@ public class MasterActivity
     // deal with the datasource
 
     ((ListView) findViewById(R.id.list)).setAdapter(new MasterAdapter(
-            this, viewModel.datasource, new View.OnClickListener() {
+            this, viewModel.dataSource, new View.OnClickListener() {
 
           @Override
           public void onClick(View view) {
@@ -82,6 +82,17 @@ public class MasterActivity
           }
         })
     );
+
+//    ((ListView) findViewById(R.id.list)).setAdapter(new MasterAdapter(
+//            this, viewModel.datasource, new View.OnClickListener() {
+//
+//          @Override
+//          public void onClick(View view) {
+//            DetailViewModel data = (DetailViewModel) view.getTag();
+//            presenter.onListPressed(data);
+//          }
+//        })
+//    );
   }
 
   @Override

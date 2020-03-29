@@ -2,6 +2,7 @@ package es.ulpgc.eite.cleancode.clickcounter.detail;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 
@@ -34,13 +35,13 @@ public interface DetailContract {
   }
 
   interface Model {
-    DetailViewModel getStoredData();
+    CounterData getStoredData();
 
     //void onDataFromNextScreen(String datasource);
 
-    void onRestartScreen(DetailViewModel data);
+    void onRestartScreen(CounterData data);
 
-    void onDataFromPreviousScreen(DetailViewModel data);
+    void onDataFromPreviousScreen(CounterData data);
   }
 
   interface Router {

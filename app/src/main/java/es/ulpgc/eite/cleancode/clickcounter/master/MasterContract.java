@@ -3,6 +3,7 @@ package es.ulpgc.eite.cleancode.clickcounter.master;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 import es.ulpgc.eite.cleancode.clickcounter.detail.DetailViewModel;
@@ -40,14 +41,14 @@ public interface MasterContract {
   }
 
   interface Model {
-    List<DetailViewModel> getStoredData();
-
-    void onDataFromNextScreen(DetailViewModel data);
-
-    void onRestartScreen(List<DetailViewModel> datasource);
-
-    void onAddData(DetailViewModel data);
-
+    List<CounterData> getStoredDataSource();
+    //List<Integer> getStoredDataSource();
+    void onDataFromNextScreen(CounterData data);
+    //void onDataFromNextScreen(Integer counter);
+    void onRestartScreen(List<CounterData> dataSource);
+    //void onRestartScreen(List<Integer> dataSource);
+    void onAddData(CounterData data);
+    //void onAddCounter(Integer counter);
     //void onDataFromPreviousScreen(String datasource);
   }
 

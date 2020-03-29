@@ -10,17 +10,25 @@ import android.widget.TextView;
 import java.util.List;
 
 import es.ulpgc.eite.cleancode.clickcounter.R;
-import es.ulpgc.eite.cleancode.clickcounter.detail.DetailViewModel;
+import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
 
-public class MasterAdapter extends ArrayAdapter<DetailViewModel> {
+public class MasterAdapter extends ArrayAdapter<CounterData> {
 
-  private final List<DetailViewModel> itemList;
+  private final List<CounterData> itemList;
+  //private final List<Integer> itemList;
   private final View.OnClickListener clickListener;
 
+//  public MasterAdapter(
+//      Context ctx, List<Integer> items, View.OnClickListener listener) {
+//
+//    super(ctx, 0, items);
+//
+//    itemList = items;
+//    clickListener = listener;
+//  }
 
   public MasterAdapter(
-      Context ctx, List<DetailViewModel> items,
-      View.OnClickListener listener) {
+      Context ctx, List<CounterData> items, View.OnClickListener listener) {
 
     super(ctx, 0, items);
 
@@ -35,12 +43,18 @@ public class MasterAdapter extends ArrayAdapter<DetailViewModel> {
   }
 
   @Override
-  public DetailViewModel getItem(int position) {
+  public CounterData getItem(int position) {
     return itemList.get(position);
   }
 
+//  @Override
+//  public DetailViewModel getItem(int position) {
+//    return itemList.get(position);
+//  }
+
   @Override
   public long getItemId(int position) {
+    //return getItem(position).id;
     return getItem(position).id;
   }
 

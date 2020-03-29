@@ -1,20 +1,22 @@
 package es.ulpgc.eite.cleancode.clickcounter.detail;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
+
 public class DetailModel implements DetailContract.Model {
 
   public static String TAG = DetailModel.class.getSimpleName();
 
-  private DetailViewModel data;
+  private CounterData data;
 
 
   @Override
-  public DetailViewModel getStoredData() {
-    // Log.e(TAG, "getStoredData()");
+  public CounterData getStoredData() {
+    // Log.e(TAG, "getStoredDataSource()");
     return data;
   }
 
   @Override
-  public void onRestartScreen(DetailViewModel data) {
+  public void onRestartScreen(CounterData data) {
     // Log.e(TAG, "onRestartScreen()");
   }
 
@@ -24,7 +26,7 @@ public class DetailModel implements DetailContract.Model {
 //  }
 
   @Override
-  public void onDataFromPreviousScreen(DetailViewModel data) {
+  public void onDataFromPreviousScreen(CounterData data) {
     // Log.e(TAG, "onDataFromPreviousScreen()");
   }
 }

@@ -3,42 +3,64 @@ package es.ulpgc.eite.cleancode.clickcounter.master;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.ulpgc.eite.cleancode.clickcounter.detail.DetailViewModel;
+import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
 
 public class MasterModel implements MasterContract.Model {
 
   public static String TAG = MasterModel.class.getSimpleName();
 
-  private List<DetailViewModel> datasource;
+  private List<CounterData> dataSource;
+  //private List<Integer> dataSource;
 
   public MasterModel() {
-    datasource = new ArrayList<>();
+    dataSource = new ArrayList<>();
+    //dataSource = new ArrayList<>();
+  }
+
+//  @Override
+//  public List<Integer> getStoredDataSource() {
+//    return dataSource;
+//  }
+//
+//  @Override
+//  public void onDataFromNextScreen(Integer counter) {
+//
+//  }
+//
+//  @Override
+//  public void onRestartScreen(List<Integer> dataSource) {
+//
+//  }
+//
+//  @Override
+//  public void onAddCounter(Integer counter) {
+//    dataSource.add(counter);
+//  }
+
+  @Override
+  public List<CounterData> getStoredDataSource() {
+    // Log.e(TAG, "getStoredDataSource()");
+    return dataSource;
   }
 
   @Override
-  public List<DetailViewModel> getStoredData() {
-    // Log.e(TAG, "getStoredData()");
-    return datasource;
-  }
-
-  @Override
-  public void onRestartScreen(List<DetailViewModel> datasource) {
+  public void onRestartScreen(List<CounterData> dataSource) {
     // Log.e(TAG, "onRestartScreen()");
   }
 
   @Override
-  public void onAddData(DetailViewModel data) {
-    datasource.add(data);
+  public void onAddData(CounterData data) {
+    dataSource.add(data);
   }
 
   @Override
-  public void onDataFromNextScreen(DetailViewModel data) {
+  public void onDataFromNextScreen(CounterData data) {
     // Log.e(TAG, "onDataFromNextScreen()");
   }
 
   /*
   @Override
-  public void onDataFromPreviousScreen(String datasource) {
+  public void onDataFromPreviousScreen(String dataSource) {
     // Log.e(TAG, "onDataFromPreviousScreen()");
   }
   */

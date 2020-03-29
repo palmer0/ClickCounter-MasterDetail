@@ -2,6 +2,7 @@ package es.ulpgc.eite.cleancode.clickcounter.master;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
 import es.ulpgc.eite.cleancode.clickcounter.detail.DetailViewModel;
 
@@ -43,7 +44,7 @@ public class MasterPresenter implements MasterContract.Presenter {
     // Log.e(TAG, "onRestart()");
 
     // update the model if is necessary
-    model.onRestartScreen(state.datasource);
+    model.onRestartScreen(state.dataSource);
   }
 
   @Override
@@ -60,7 +61,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 
 
     // call the model and update the state
-    state.datasource = model.getStoredData();
+    state.dataSource = model.getStoredDataSource();
 
     // update the view
     view.get().onDataUpdated(state);
@@ -86,7 +87,7 @@ public class MasterPresenter implements MasterContract.Presenter {
   public void onButtonPressed() {
     // Log.e(TAG, "onButtonPressed()");
 
-    model.onAddData(new DetailViewModel());
+    model.onAddData(new CounterData());
 
     onResume();
   }

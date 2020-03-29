@@ -40,7 +40,7 @@ public class DetailPresenter implements DetailContract.Presenter {
     // Log.e(TAG, "onRestart()");
 
     // update the model if is necessary
-    model.onRestartScreen(state);
+    model.onRestartScreen(state.data);
   }
 
   @Override
@@ -58,7 +58,7 @@ public class DetailPresenter implements DetailContract.Presenter {
     */
 
     // call the model and update the state
-    state = (DetailState) model.getStoredData();
+    state.data = model.getStoredData();
 
     // update the view
     view.get().onDataUpdated(state);
