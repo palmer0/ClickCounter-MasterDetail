@@ -1,6 +1,7 @@
 package es.ulpgc.eite.cleancode.clickcounter.detail;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -74,5 +75,9 @@ public class DetailActivity
   @Override
   public void injectPresenter(DetailContract.Presenter presenter) {
     this.presenter = presenter;
+  }
+
+  public void onButtonPressed(View view) {
+    presenter.onButtonPressed();
   }
 }

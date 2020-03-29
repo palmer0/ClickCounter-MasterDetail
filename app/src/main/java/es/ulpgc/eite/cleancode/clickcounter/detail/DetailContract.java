@@ -32,6 +32,8 @@ public interface DetailContract {
     void onPause();
 
     void onDestroy();
+
+    void onButtonPressed();
   }
 
   interface Model {
@@ -39,9 +41,13 @@ public interface DetailContract {
 
     Integer getStoredNumOfClick();
 
+    void onIncrementNumOfClicks();
+
     void onRestartScreen(CounterData counter, Integer clicks);
 
     void onDataFromPreviousScreen(CounterData counter, Integer clicks);
+
+    void onIncrementCounter();
   }
 
   interface Router {

@@ -23,6 +23,11 @@ public class DetailModel implements DetailContract.Model {
 
 
   @Override
+  public void onIncrementNumOfClicks() {
+    clicks++;
+  }
+
+  @Override
   public void onRestartScreen(CounterData counter, Integer clicks) {
     // Log.e(TAG, "onRestartScreen()");
     this.counter =counter;
@@ -34,5 +39,10 @@ public class DetailModel implements DetailContract.Model {
     // Log.e(TAG, "onDataFromPreviousScreen()");
     this.counter =counter;
     this.clicks=clicks;
+  }
+
+  @Override
+  public void onIncrementCounter() {
+    counter.value++;
   }
 }

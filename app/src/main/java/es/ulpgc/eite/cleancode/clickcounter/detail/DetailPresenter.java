@@ -72,6 +72,16 @@ public class DetailPresenter implements DetailContract.Presenter {
   }
 
   @Override
+  public void onButtonPressed() {
+    // Log.e(TAG, "onButtonPressed()");
+
+    model.onIncrementCounter();
+    model.onIncrementNumOfClicks();
+
+    onResume();
+  }
+
+  @Override
   public void injectView(WeakReference<DetailContract.View> view) {
     this.view = view;
   }
