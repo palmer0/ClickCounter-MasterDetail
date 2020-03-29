@@ -33,8 +33,14 @@ public class MasterModel implements MasterContract.Model {
   }
 
   @Override
-  public void onDataFromNextScreen(CounterData counter) {
+  public void onDataFromNextScreen(Integer clicks) {
     // Log.e(TAG, "onDataFromNextScreen()");
   }
 
+  /*
+  @Override
+  public void onDataFromNextScreen(CounterData counter) {
+    // Log.e(TAG, "onDataFromNextScreen()");
+  }
+  */
 }

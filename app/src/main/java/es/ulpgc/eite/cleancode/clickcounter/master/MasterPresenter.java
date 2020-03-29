@@ -4,7 +4,6 @@ import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
-import es.ulpgc.eite.cleancode.clickcounter.detail.DetailViewModel;
 
 public class MasterPresenter implements MasterContract.Presenter {
 
@@ -47,7 +46,7 @@ public class MasterPresenter implements MasterContract.Presenter {
     if (savedState != null) {
 
       // update the model if is necessary
-      model.onDataFromNextScreen(savedState.data);
+      model.onDataFromNextScreen(savedState.clicks);
     }
 
 
@@ -84,7 +83,7 @@ public class MasterPresenter implements MasterContract.Presenter {
   }
 
   @Override
-  public void onListPressed(DetailViewModel data) {
+  public void onListPressed(CounterData counter) {
     // Log.e(TAG, "onListPressed()");
   }
 

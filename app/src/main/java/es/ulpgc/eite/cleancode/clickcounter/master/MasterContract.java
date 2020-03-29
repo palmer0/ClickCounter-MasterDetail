@@ -41,7 +41,8 @@ public interface MasterContract {
 
   interface Model {
     List<CounterData> getStoredDataSource();
-    void onDataFromNextScreen(CounterData counter);
+    //void onDataFromNextScreen(CounterData counter);
+    void onDataFromNextScreen(Integer clicks);
     void onRestartScreen(List<CounterData> counters);
     void onAddData(CounterData counter);
   }
