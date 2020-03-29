@@ -15,17 +15,8 @@ import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
 public class MasterAdapter extends ArrayAdapter<CounterData> {
 
   private final List<CounterData> itemList;
-  //private final List<Integer> itemList;
   private final View.OnClickListener clickListener;
 
-//  public MasterAdapter(
-//      Context ctx, List<Integer> items, View.OnClickListener listener) {
-//
-//    super(ctx, 0, items);
-//
-//    itemList = items;
-//    clickListener = listener;
-//  }
 
   public MasterAdapter(
       Context ctx, List<CounterData> items, View.OnClickListener listener) {
@@ -47,14 +38,9 @@ public class MasterAdapter extends ArrayAdapter<CounterData> {
     return itemList.get(position);
   }
 
-//  @Override
-//  public DetailViewModel getItem(int position) {
-//    return itemList.get(position);
-//  }
 
   @Override
   public long getItemId(int position) {
-    //return getItem(position).id;
     return getItem(position).id;
   }
 

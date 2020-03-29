@@ -9,5 +9,4 @@ public class MasterViewModel {
 
   // put the view state here
   public List<CounterData> dataSource = new ArrayList<>();
-  //public List<DetailViewModel> datasource = new ArrayList<>();
 }

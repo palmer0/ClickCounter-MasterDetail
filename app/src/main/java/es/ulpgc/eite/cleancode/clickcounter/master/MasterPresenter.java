@@ -28,15 +28,6 @@ public class MasterPresenter implements MasterContract.Presenter {
       state = new MasterState();
     }
 
-    /*
-    // use passed state if is necessary
-    MasterState savedState = router.getStateFromPreviousScreen();
-    if (savedState != null) {
-
-      // update the model if is necessary
-      model.onDataFromPreviousScreen(savedState.counter);
-    }
-    */
   }
 
   @Override

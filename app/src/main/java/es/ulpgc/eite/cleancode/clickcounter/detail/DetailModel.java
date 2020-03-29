@@ -20,11 +20,6 @@ public class DetailModel implements DetailContract.Model {
     // Log.e(TAG, "onRestartScreen()");
   }
 
-//  @Override
-//  public void onDataFromNextScreen(String datasource) {
-//    // Log.e(TAG, "onDataFromNextScreen()");
-//  }
-
   @Override
   public void onDataFromPreviousScreen(CounterData data) {
     // Log.e(TAG, "onDataFromPreviousScreen()");

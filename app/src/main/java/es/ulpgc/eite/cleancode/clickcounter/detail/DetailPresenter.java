@@ -47,16 +47,6 @@ public class DetailPresenter implements DetailContract.Presenter {
   public void onResume() {
     // Log.e(TAG, "onResume()");
 
-    /*
-    // use passed state if is necessary
-    DetailState savedState = router.getStateFromNextScreen();
-    if (savedState != null) {
-
-      // update the model if is necessary
-      model.onDataFromNextScreen(savedState.counter);
-    }
-    */
-
     // call the model and update the state
     state.data = model.getStoredData();
 

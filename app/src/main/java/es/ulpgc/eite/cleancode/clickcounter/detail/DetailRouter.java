@@ -25,10 +25,6 @@ public class DetailRouter implements DetailContract.Router {
     context.startActivity(intent);
   }
 
-//  @Override
-//  public void passStateToNextScreen(DetailState state) {
-//    mediator.setDetailNextScreenState(state);
-//  }
 
   @Override
   public void passStateToPreviousScreen(DetailToMasterState state) {
@@ -40,8 +36,4 @@ public class DetailRouter implements DetailContract.Router {
     return mediator.getDetailPreviousScreenState();
   }
 
-//  @Override
-//  public DetailState getStateFromNextScreen() {
-//    return mediator.getDetailNextScreenState();
-//  }
 }

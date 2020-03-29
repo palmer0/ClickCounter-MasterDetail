@@ -30,15 +30,6 @@ public class MasterRouter implements MasterContract.Router {
     mediator.setMasterNextScreenState(state);
   }
 
-//  @Override
-//  public void passStateToPreviousScreen(MasterState state) {
-//    mediator.setMasterPreviousScreenState(state);
-//  }
-
-//  @Override
-//  public MasterState getStateFromPreviousScreen() {
-//    return mediator.getMasterPreviousScreenState();
-//  }
 
   @Override
   public DetailToMasterState getStateFromNextScreen() {

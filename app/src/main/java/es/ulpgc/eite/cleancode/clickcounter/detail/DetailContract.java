@@ -37,8 +37,6 @@ public interface DetailContract {
   interface Model {
     CounterData getStoredData();
 
-    //void onDataFromNextScreen(String datasource);
-
     void onRestartScreen(CounterData data);
 
     void onDataFromPreviousScreen(CounterData data);
@@ -47,11 +45,7 @@ public interface DetailContract {
   interface Router {
     void navigateToNextScreen();
 
-    //void passStateToNextScreen(DetailState state);
-
     MasterToDetailState getStateFromPreviousScreen();
-
-    //DetailState getStateFromNextScreen();
 
     void passStateToPreviousScreen(DetailToMasterState state);
   }

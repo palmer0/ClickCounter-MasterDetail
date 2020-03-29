@@ -2,6 +2,7 @@ package es.ulpgc.eite.cleancode.clickcounter.app;
 
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
+import java.util.Objects;
 import java.util.UUID;
 
 public class CounterData {
@@ -38,5 +39,18 @@ public class CounterData {
     // if its not we simply repeat the process
     while (val < 0);
     return val;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (!(obj instanceof CounterData)) return false;
+    CounterData data = (CounterData) obj;
+    return Objects.equals(id, data.id);
+  }
+
+  @Override
+  public String toString() {
+    return String.valueOf(counter);
   }
 }

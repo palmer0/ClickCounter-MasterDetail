@@ -42,14 +42,9 @@ public interface MasterContract {
 
   interface Model {
     List<CounterData> getStoredDataSource();
-    //List<Integer> getStoredDataSource();
     void onDataFromNextScreen(CounterData data);
-    //void onDataFromNextScreen(Integer counter);
     void onRestartScreen(List<CounterData> dataSource);
-    //void onRestartScreen(List<Integer> dataSource);
     void onAddData(CounterData data);
-    //void onAddCounter(Integer counter);
-    //void onDataFromPreviousScreen(String datasource);
   }
 
   interface Router {
@@ -57,10 +52,7 @@ public interface MasterContract {
 
     void passStateToNextScreen(MasterToDetailState state);
 
-    //MasterState getStateFromPreviousScreen();
-
     DetailToMasterState getStateFromNextScreen();
 
-    //void passStateToPreviousScreen(MasterState state);
   }
 }
