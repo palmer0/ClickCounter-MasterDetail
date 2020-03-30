@@ -30,7 +30,7 @@ public class MasterInstrumentedTests extends GreenCoffeeTest {
     return new GreenCoffeeConfig(true)
         .withFeatureFromAssets("assets/master.feature")
         .scenarios(
-            new Locale("en", "GB"),
+            //new Locale("en", "GB"),
             new Locale("es", "ES")
         ); // the locales used to run the scenarios (optional)
   }
