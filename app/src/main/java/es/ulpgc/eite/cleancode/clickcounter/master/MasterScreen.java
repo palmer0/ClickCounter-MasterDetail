@@ -13,7 +13,6 @@ public class MasterScreen {
     WeakReference<FragmentActivity> context =
         new WeakReference<>((FragmentActivity) view);
 
-
     AppMediator mediator = (AppMediator) context.get().getApplication();
     MasterState state = mediator.getMasterState();
 
