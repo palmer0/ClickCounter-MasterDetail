@@ -15,7 +15,7 @@ class DetailInstrumentedSteps extends GreenCoffeeSteps {
 
   @Given("^iniciando pantalla detalle$")
   public void iniciandoPantallaDetalle() {
-    robot.iniciarPantallaDetalle();
+
   }
 
   @And("^mostrando contador con valor \"([^\"]*)\"$")
