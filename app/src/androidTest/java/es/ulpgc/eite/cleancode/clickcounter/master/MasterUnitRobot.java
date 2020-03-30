@@ -1,4 +1,4 @@
-package es.ulpgc.eite.cleancode.clickcounter.features;
+package es.ulpgc.eite.cleancode.clickcounter.master;
 
 public class MasterUnitRobot  {
 

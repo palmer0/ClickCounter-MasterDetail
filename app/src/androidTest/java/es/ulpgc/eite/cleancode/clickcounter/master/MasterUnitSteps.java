@@ -1,24 +1,16 @@
-package es.ulpgc.eite.cleancode.clickcounter.features;
+package es.ulpgc.eite.cleancode.clickcounter.master;
+
+import com.mauriciotogneri.greencoffee.GreenCoffeeSteps;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-//@RunWith(AndroidJUnit4ClassRunner.class)
-/*
-@CucumberOptions(
-    glue = "es.ulpgc.eite.cleancode.clickcounter.features",
-    features = "features"
-)
-@RunWith(AndroidJUnit4.class)
-*/
-public class MasterUnitTests  {
 
-  /*
-  @Rule
-  private ActivityTestRule<MasterActivity> testRule =
-      new ActivityTestRule<>(MasterActivity.class, false, false);
-  */
+public class MasterUnitSteps extends GreenCoffeeSteps {
+
+//  private ActivityTestRule<MasterActivity> testRule =
+//      new ActivityTestRule<>(MasterActivity.class, false, false);
 
   MasterUnitRobot robot = new MasterUnitRobot();
 
@@ -101,32 +93,33 @@ public class MasterUnitTests  {
 
   @When("pulsamos boton detalle")
   public void pulsamos_boton_contador() {
-    
+
     robot.pulsar_boton_detalle();
   }
 
   @Given("pulsando boton detalle")
   public void pulsando_boton_contador() {
-    
+
     robot.pulsar_boton_detalle();
   }
 
   @When("pulsamos boton regresar")
   public void pulsamos_boton_regresar() {
-    
+
     robot.pulsar_boton_regresar();
   }
 
   @Then("finalizaremos pantalla detalle")
   public void finalizaremos_pantalla_detalle() {
-    
+
     robot.finalizar_pantalla_detalle();
   }
 
   @Then("resumiremos pantalla maestro")
   public void resumiremos_pantalla_maestro() {
-    
+
     robot.resumir_pantalla_maestro();
   }
+
 
 }
