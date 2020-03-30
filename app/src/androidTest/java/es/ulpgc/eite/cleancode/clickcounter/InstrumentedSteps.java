@@ -13,11 +13,7 @@ public class InstrumentedSteps extends GreenCoffeeSteps {
 
   private InstrumentedRobot robot;
 
-  //private InstrumentedRobot robot = new InstrumentedRobot();
-  //private ActivityTestRule rule;
-
   public InstrumentedSteps(ActivityTestRule rule) {
-    //this.rule = rule;
     robot = new InstrumentedRobot(rule);
   }
 
