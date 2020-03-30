@@ -1,7 +1,14 @@
 package es.ulpgc.eite.cleancode.clickcounter;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.view.View;
 import android.widget.ListView;
+
+import androidx.test.core.app.ApplicationProvider;
+import androidx.test.rule.ActivityTestRule;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -20,6 +27,12 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 
 public class InstrumentedRobot {
+
+  private ActivityTestRule rule;
+
+  public InstrumentedRobot(ActivityTestRule rule) {
+    this.rule = rule;
+  }
 
   private static Matcher<View> withListSize (final int size) {
 
@@ -54,9 +67,22 @@ public class InstrumentedRobot {
   }
 
 
-  public void mostrarListaConNumeroDeContadores(String s) {
+  public void rotarPantalla() {
 
-    int size = Integer.valueOf(s);
+    Context context = ApplicationProvider.getApplicationContext();
+    int orientation = context.getResources().getConfiguration().orientation;
+    Activity activity = rule.getActivity();
+
+    if(orientation  == Configuration.ORIENTATION_PORTRAIT) {
+      activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+    } else {
+      activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+  }
+
+  public void mostrarListaConNumeroDeContadores(String arg0) {
+
+    int size = Integer.valueOf(arg0);
 
     onView (withId (R.id.list)).check (matches (withListSize (size)));
   }
@@ -67,10 +93,18 @@ public class InstrumentedRobot {
   }
 
 
-  public void mostrarContadorEnListaEnPosicionConValor(String s1, String s2) {
+  public void pulsarBotonMasterNumeroDeVeces(String arg0) {
+    int length = Integer.valueOf(arg0);
 
-    int pos = Integer.valueOf(s1);
-    int val = Integer.valueOf(s2);
+    for(int index=0; index < length; index++){
+      pulsarBotonMaster();
+    }
+  }
+
+  public void mostrarContadorEnListaEnPosicionConValor(String arg0, String arg1) {
+
+    int pos = Integer.valueOf(arg0);
+    int val = Integer.valueOf(arg1);
 
     onView (withId (R.id.list)).check (matches (withValueAtPosition(val,pos)));
   }
@@ -83,9 +117,9 @@ public class InstrumentedRobot {
         .check(matches(withText(s)));
   }
 
-  public void pulsarBotonContadorEnPosicion(String s) {
+  public void pulsarBotonContadorEnPosicion(String arg0) {
 
-    int pos = Integer.valueOf(s);
+    int pos = Integer.valueOf(arg0);
 
     onData(allOf())
         .inAdapterView(withId(R.id.list))
@@ -93,10 +127,20 @@ public class InstrumentedRobot {
         .perform(click());
   }
 
-  public void mostrarNumeroDeClicksConValor(String s) {
+  public void pulsarBotonContadorEnPosicionNumeroDeVeces(String arg0, String arg1) {
+
+    int length = Integer.valueOf(arg1);
+
+    for(int index=0; index < length; index++){
+      pulsarBotonContadorEnPosicion(arg0);
+      pulsarBotonRegresar();
+    }
+  }
+
+  public void mostrarNumeroDeClicksConValor(String arg0) {
     onView(withId(R.id.clicks))
         .check(matches(isDisplayed()))
-        .check(matches(withText(s)));
+        .check(matches(withText(arg0)));
   }
 
   public void pulsarBotonDetalle() {
@@ -107,4 +151,12 @@ public class InstrumentedRobot {
     pressBack();
   }
 
+
+  public void pulsarBotonDetalleNumeroDeVeces(String arg0) {
+    int length = Integer.valueOf(arg0);
+
+    for(int index=0; index < length; index++){
+      pulsarBotonDetalle();
+    }
+  }
 }
