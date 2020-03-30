@@ -1,4 +1,4 @@
-package es.ulpgc.eite.cleancode.clickcounter.master;
+package es.ulpgc.eite.cleancode.clickcounter;
 
 import com.mauriciotogneri.greencoffee.GreenCoffeeSteps;
 import com.mauriciotogneri.greencoffee.annotations.And;
@@ -6,10 +6,8 @@ import com.mauriciotogneri.greencoffee.annotations.Given;
 import com.mauriciotogneri.greencoffee.annotations.Then;
 import com.mauriciotogneri.greencoffee.annotations.When;
 
-import es.ulpgc.eite.cleancode.clickcounter.InstrumentedRobot;
-
 @SuppressWarnings("unused")
-public class MasterInstrumentedSteps extends GreenCoffeeSteps {
+public class InstrumentedSteps extends GreenCoffeeSteps {
 
   InstrumentedRobot robot = new InstrumentedRobot();
   

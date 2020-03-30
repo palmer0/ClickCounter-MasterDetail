@@ -1,4 +1,4 @@
-package es.ulpgc.eite.cleancode.clickcounter.detail;
+package es.ulpgc.eite.cleancode.clickcounter;
 
 import androidx.test.rule.ActivityTestRule;
 
@@ -14,13 +14,15 @@ import org.junit.runners.Parameterized;
 import java.io.IOException;
 import java.util.Locale;
 
+import es.ulpgc.eite.cleancode.clickcounter.master.MasterActivity;
+
 @RunWith(Parameterized.class)
-public class DetailInstrumentedTests extends GreenCoffeeTest {
+public class InstrumentedTests extends GreenCoffeeTest {
 
   @Rule
-  public ActivityTestRule activity = new ActivityTestRule(DetailActivity.class);
+  public ActivityTestRule activity = new ActivityTestRule(MasterActivity.class);
 
-  public DetailInstrumentedTests(ScenarioConfig scenarioConfig) {
+  public InstrumentedTests(ScenarioConfig scenarioConfig) {
     super(scenarioConfig);
   }
 
@@ -28,16 +30,15 @@ public class DetailInstrumentedTests extends GreenCoffeeTest {
   public static Iterable scenarios() throws IOException {
     // automatically take a screenshot if a test fails
     return new GreenCoffeeConfig(true)
-        .withFeatureFromAssets("assets/detail.feature")
+        .withFeatureFromAssets("assets/master.feature")
         .scenarios(
             //new Locale("en", "GB"),
             new Locale("es", "ES")
         ); // the locales used to run the scenarios (optional)
-
   }
 
   @Test
   public void test() {
-    start(new DetailInstrumentedSteps());
+    start(new InstrumentedSteps());
   }
 }

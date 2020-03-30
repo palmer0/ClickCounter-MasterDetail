@@ -21,21 +21,21 @@ import static org.hamcrest.Matchers.allOf;
 
 public class InstrumentedRobot {
 
-  public static Matcher<View> withListSize (final int size) {
+  private static Matcher<View> withListSize (final int size) {
 
     return new TypeSafeMatcher<View>() {
 
       @Override public boolean matchesSafely (final View view) {
-        return ((ListView) view).getCount () == size;
+        return ((ListView) view).getCount() == size;
       }
 
       @Override public void describeTo (final Description description) {
-        description.appendText ("ListView should have " + size + " items");
+        description.appendText("ListView should have " + size + " items");
       }
     };
   }
 
-  public static Matcher<View> withValueAtPosition (final int val, final int pos) {
+  private static Matcher<View> withValueAtPosition (final int val, final int pos) {
 
     return new TypeSafeMatcher<View>() {
 
@@ -46,7 +46,9 @@ public class InstrumentedRobot {
       }
 
       @Override public void describeTo (final Description description) {
-
+        description.appendText(
+            "ListView should have " + val + " item at position " + pos
+        );
       }
     };
   }
@@ -112,7 +114,5 @@ public class InstrumentedRobot {
   public void pulsarBotonRegresar() {
     pressBack();
   }
-
-
 
 }
