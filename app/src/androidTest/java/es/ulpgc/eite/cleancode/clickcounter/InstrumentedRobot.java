@@ -53,6 +53,11 @@ public class InstrumentedRobot {
     return new TypeSafeMatcher<View>() {
 
       @Override public boolean matchesSafely (final View view) {
+        int size = ((ListView) view).getCount();
+        if(pos >= size) {
+          return false;
+        }
+
         Object obj = ((ListView) view).getItemAtPosition(pos);
         CounterData item = (CounterData) obj;
         return item.value == val;
