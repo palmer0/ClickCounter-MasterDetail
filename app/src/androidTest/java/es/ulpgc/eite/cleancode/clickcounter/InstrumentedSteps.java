@@ -43,10 +43,6 @@ public class InstrumentedSteps extends GreenCoffeeSteps {
     rotarPantalla();
   }
 
-  @Given("^iniciando pantalla maestro$")
-  public void iniciandoPantallaMaestro() {
-
-  }
 
   @And("^mostrando lista con numero de contadores \"([^\"]*)\"$")
   public void mostrandoListaConNumeroDeContadores(String arg0) {
@@ -111,10 +107,6 @@ public class InstrumentedSteps extends GreenCoffeeSteps {
     
   }
 
-  @And("^iniciando pantalla detalle$")
-  public void iniciandoPantallaDetalle() {
-
-  }
 
   @And("^mostrando contador con valor \"([^\"]*)\"$")
   public void mostrandoContadorConValor(String arg0) {
@@ -148,8 +140,19 @@ public class InstrumentedSteps extends GreenCoffeeSteps {
 
   }
 
+  @And("^iniciando pantalla detalle$")
+  public void iniciandoPantallaDetalle() {
+
+  }
+
   @And("^resumiremos pantalla maestro$")
   public void resumiremosPantallaMaestro() {
+
+  }
+
+  @Given("^iniciando pantalla maestro$")
+  public void iniciandoPantallaMaestro() {
+
   }
 
 }

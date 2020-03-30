@@ -56,17 +56,9 @@ public class InstrumentedRobot {
 
   public void mostrarListaConNumeroDeContadores(String s) {
 
-//    try {
-//      Thread.sleep(700);
-//    } catch (InterruptedException e) {
-//      e.printStackTrace();
-//    }
-
     int size = Integer.valueOf(s);
 
     onView (withId (R.id.list)).check (matches (withListSize (size)));
-
-
   }
 
   public void pulsarBotonMaster() {
