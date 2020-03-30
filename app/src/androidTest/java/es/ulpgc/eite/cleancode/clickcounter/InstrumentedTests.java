@@ -30,7 +30,7 @@ public class InstrumentedTests extends GreenCoffeeTest {
   public static Iterable scenarios() throws IOException {
     // automatically take a screenshot if a test fails
     return new GreenCoffeeConfig(true)
-        .withFeatureFromAssets("assets/master.feature")
+        .withFeatureFromAssets("assets/clickcounter.feature")
         .scenarios(
             //new Locale("en", "GB"),
             new Locale("es", "ES")
