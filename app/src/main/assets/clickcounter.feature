@@ -7,6 +7,15 @@ Feature: pantalla maestro
     Then mostraremos contador en lista en posicion "0" con valor "0"
     And mostraremos lista con numero de contadores "1"
 
+  Scenario: crear contador en maestro girando pantalla
+    Given iniciando pantalla maestro
+    And mostrando lista con numero de contadores "0"
+    And pulsando boton master
+    When rotamos pantalla
+    Then mostraremos contador en lista en posicion "0" con valor "0"
+    And mostraremos lista con numero de contadores "1"
+
+
   Scenario: pulsar en contador de maestro
     Given iniciando pantalla maestro
     And mostrando lista con numero de contadores "0"

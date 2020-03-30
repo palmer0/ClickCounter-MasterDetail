@@ -1,5 +1,13 @@
 package es.ulpgc.eite.cleancode.clickcounter;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+
+import androidx.test.core.app.ApplicationProvider;
+import androidx.test.rule.ActivityTestRule;
+
 import com.mauriciotogneri.greencoffee.GreenCoffeeSteps;
 import com.mauriciotogneri.greencoffee.annotations.And;
 import com.mauriciotogneri.greencoffee.annotations.Given;
@@ -9,8 +17,32 @@ import com.mauriciotogneri.greencoffee.annotations.When;
 @SuppressWarnings("unused")
 public class InstrumentedSteps extends GreenCoffeeSteps {
 
-  InstrumentedRobot robot = new InstrumentedRobot();
-  
+  private InstrumentedRobot robot = new InstrumentedRobot();
+  private ActivityTestRule rule;
+
+  public InstrumentedSteps(ActivityTestRule rule) {
+    this.rule = rule;
+  }
+
+  private void rotarPantalla() {
+
+    Context context = ApplicationProvider.getApplicationContext();
+    int orientation = context.getResources().getConfiguration().orientation;
+    Activity activity = rule.getActivity();
+
+    if(orientation  == Configuration.ORIENTATION_PORTRAIT) {
+      activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+    } else {
+      activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+  }
+
+  @When("^rotamos pantalla$")
+  public void rotamosPantalla() {
+
+    rotarPantalla();
+  }
+
   @Given("^iniciando pantalla maestro$")
   public void iniciandoPantallaMaestro() {
 

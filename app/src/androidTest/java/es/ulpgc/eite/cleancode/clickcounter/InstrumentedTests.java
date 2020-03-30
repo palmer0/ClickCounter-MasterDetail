@@ -20,7 +20,7 @@ import es.ulpgc.eite.cleancode.clickcounter.master.MasterActivity;
 public class InstrumentedTests extends GreenCoffeeTest {
 
   @Rule
-  public ActivityTestRule activity = new ActivityTestRule(MasterActivity.class);
+  public ActivityTestRule rule = new ActivityTestRule(MasterActivity.class);
 
   public InstrumentedTests(ScenarioConfig scenarioConfig) {
     super(scenarioConfig);
@@ -39,6 +39,6 @@ public class InstrumentedTests extends GreenCoffeeTest {
 
   @Test
   public void test() {
-    start(new InstrumentedSteps());
+    start(new InstrumentedSteps(rule));
   }
 }
