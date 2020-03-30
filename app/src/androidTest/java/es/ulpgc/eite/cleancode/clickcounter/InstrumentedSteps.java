@@ -48,7 +48,7 @@ public class InstrumentedSteps extends GreenCoffeeSteps {
 
   @When("^cuando rotar pantalla$")
   public void cuandoRotarPantalla() {
-    robot.rotarPantalla();
+    robot.rotateScreen();
   }
 
   @And("^y mostrar contador en lista en posicion \"([^\"]*)\" con valor \"([^\"]*)\"$")

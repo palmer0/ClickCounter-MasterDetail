@@ -34,7 +34,7 @@ public class InstrumentedRobot {
     this.rule = rule;
   }
 
-  private static Matcher<View> withListSize (final int size) {
+  private static Matcher<View> withListSize(final int size) {
 
     return new TypeSafeMatcher<View>() {
 
@@ -48,7 +48,7 @@ public class InstrumentedRobot {
     };
   }
 
-  private static Matcher<View> withValueAtPosition (final int val, final int pos) {
+  private static Matcher<View> withValueAtPosition(final int val, final int pos) {
 
     return new TypeSafeMatcher<View>() {
 
@@ -67,7 +67,7 @@ public class InstrumentedRobot {
   }
 
 
-  public void rotarPantalla() {
+  public void rotateScreen() {
 
     Context context = ApplicationProvider.getApplicationContext();
     int orientation = context.getResources().getConfiguration().orientation;
