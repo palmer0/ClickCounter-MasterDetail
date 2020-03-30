@@ -61,11 +61,16 @@ public class DetailActivity
     presenter.onDestroy();
   }
 
+
+  public void onButtonPressed(View view) {
+    presenter.onButtonPressed();
+  }
+
   @Override
   public void onDataUpdated(DetailViewModel viewModel) {
     //Log.e(TAG, "onDataUpdated()");
 
-    // deal with the counter
+    // deal with the data
     String counter = String.valueOf(viewModel.counter);
     ((TextView) findViewById(R.id.counter)).setText(counter);
     String clicks = String.valueOf(viewModel.clicks);
@@ -77,7 +82,4 @@ public class DetailActivity
     this.presenter = presenter;
   }
 
-  public void onButtonPressed(View view) {
-    presenter.onButtonPressed();
-  }
 }

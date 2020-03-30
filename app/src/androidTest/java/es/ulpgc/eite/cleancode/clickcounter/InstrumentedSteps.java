@@ -136,4 +136,9 @@ public class InstrumentedSteps extends GreenCoffeeSteps {
     robot.pulsarBotonContadorEnPosicionNumeroDeVeces(arg0, arg1);
   }
 
+  @And("^y pulsar boton detalle numero de veces \"([^\"]*)\"$")
+  public void yPulsarBotonDetalleNumeroDeVeces(String arg0) {
+    robot.pulsarBotonDetalleNumeroDeVeces(arg0);
+  }
+
 }
