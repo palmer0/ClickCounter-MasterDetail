@@ -19,6 +19,8 @@ public class AppMediator extends Application {
 
     detailState= new DetailState();
     masterState= new MasterState();
+
+    masterToDetailState = new MasterToDetailState();
   }
 
   public DetailState getDetailState() {
