@@ -1,6 +1,12 @@
 package es.ulpgc.eite.cleancode.clickcounter;
 
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+
+import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
@@ -20,7 +26,27 @@ public class ClickCounterInstrTests {
     public ActivityTestRule<MasterActivity> rule = 
         new ActivityTestRule<>(MasterActivity.class);
 
-    private ClickCounterRobot robot = new ClickCounterRobot(rule);
+    //private ClickCounterRobot robot = new ClickCounterRobot(rule);
+    private ClickCounterRobot robot = new ClickCounterRobot();
+
+
+    public void rotateScreen() {
+
+        Context context = ApplicationProvider.getApplicationContext();
+        int orientation = context.getResources().getConfiguration().orientation;
+        Activity activity = rule.getActivity();
+
+        if(orientation  == Configuration.ORIENTATION_PORTRAIT) {
+            activity.setRequestedOrientation(
+                ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            );
+        } else {
+            activity.setRequestedOrientation(
+                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            );
+        }
+    }
+
 
     @Test
     public void testCrearContadorEnMaestro() {
