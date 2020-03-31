@@ -1,4 +1,4 @@
-Feature: pantalla maestro
+Feature: contador de clicks
 
   Scenario: crear contador en maestro
     Given dado mostrar lista con numero de contadores "0"
