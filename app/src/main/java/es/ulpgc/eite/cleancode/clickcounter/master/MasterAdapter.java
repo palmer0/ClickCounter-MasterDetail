@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import es.ulpgc.eite.cleancode.clickcounter.R;
-import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
+import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 
 public class MasterAdapter extends ArrayAdapter<CounterData> {
 

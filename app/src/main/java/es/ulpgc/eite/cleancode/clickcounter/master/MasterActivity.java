@@ -7,7 +7,7 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.eite.cleancode.clickcounter.R;
-import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
+import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 
 public class MasterActivity
     extends AppCompatActivity implements MasterContract.View {

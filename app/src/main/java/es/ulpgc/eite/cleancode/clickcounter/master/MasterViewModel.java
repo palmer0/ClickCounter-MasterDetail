@@ -3,7 +3,7 @@ package es.ulpgc.eite.cleancode.clickcounter.master;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
+import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 
 public class MasterViewModel {
 

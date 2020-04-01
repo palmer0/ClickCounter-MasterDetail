@@ -1,6 +1,6 @@
 package es.ulpgc.eite.cleancode.clickcounter.detail;
 
-import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
+import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 
 public class DetailModel implements DetailContract.Model {
 

@@ -14,7 +14,7 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
+import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;

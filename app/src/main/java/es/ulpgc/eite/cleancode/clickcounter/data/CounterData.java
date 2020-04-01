@@ -1,4 +1,4 @@
-package es.ulpgc.eite.cleancode.clickcounter.app;
+package es.ulpgc.eite.cleancode.clickcounter.data;
 
 import java.math.BigInteger;
 import java.nio.ByteBuffer;

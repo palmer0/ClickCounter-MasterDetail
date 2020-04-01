@@ -2,7 +2,7 @@ package es.ulpgc.eite.cleancode.clickcounter.detail;
 
 import java.lang.ref.WeakReference;
 
-import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
+import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 
