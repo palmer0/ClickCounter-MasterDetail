@@ -1,21 +1,18 @@
 package es.ulpgc.eite.cleancode.clickcounter;
 
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
-
-import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
+import androidx.test.uiautomator.UiDevice;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import es.ulpgc.eite.cleancode.clickcounter.master.MasterActivity;
+
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
@@ -30,6 +27,25 @@ public class ClickCounterInstrTests {
     private ClickCounterRobot robot = new ClickCounterRobot();
 
 
+    private void rotateScreen() {
+
+        try {
+
+            UiDevice device = UiDevice.getInstance(getInstrumentation());
+
+            Thread.sleep(700);
+            device.setOrientationLeft();
+            Thread.sleep(700);
+            device.setOrientationNatural();
+            Thread.sleep(700);
+
+        } catch (Exception e) {
+
+        }
+
+    }
+
+    /*
     public void rotateScreen() {
 
         Context context = ApplicationProvider.getApplicationContext();
@@ -50,7 +66,7 @@ public class ClickCounterInstrTests {
             Thread.sleep(700);
         } catch (InterruptedException e) { }
     }
-
+    */
 
     @Test
     public void testCrearContadorEnMaestro() {

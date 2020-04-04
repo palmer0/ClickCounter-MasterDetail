@@ -1,14 +1,10 @@
 package es.ulpgc.eite.cleancode.clickcounter;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.view.View;
 import android.widget.ListView;
 
-import androidx.test.core.app.ApplicationProvider;
 import androidx.test.rule.ActivityTestRule;
+import androidx.test.uiautomator.UiDevice;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -24,6 +20,7 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.Matchers.allOf;
 
 public class InstrumentedRobot {
@@ -72,6 +69,26 @@ public class InstrumentedRobot {
   }
 
 
+
+  public void rotateScreen() {
+
+    try {
+
+      UiDevice device = UiDevice.getInstance(getInstrumentation());
+
+      Thread.sleep(700);
+      device.setOrientationLeft();
+      Thread.sleep(700);
+      device.setOrientationNatural();
+      Thread.sleep(700);
+
+    } catch (Exception e) {
+
+    }
+
+  }
+
+  /*
   public void rotateScreen() {
 
     Context context = ApplicationProvider.getApplicationContext();
@@ -84,6 +101,8 @@ public class InstrumentedRobot {
       activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
   }
+  */
+
 
   public void mostrarListaConNumeroDeContadores(String arg0) {
 
