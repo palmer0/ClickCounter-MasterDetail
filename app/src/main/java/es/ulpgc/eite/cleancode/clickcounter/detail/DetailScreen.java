@@ -13,7 +13,7 @@ public class DetailScreen {
     WeakReference<FragmentActivity> context =
         new WeakReference<>((FragmentActivity) view);
 
-    AppMediator mediator = (AppMediator) context.get().getApplication();
+    AppMediator mediator = AppMediator.getInstance();
     DetailState state = mediator.getDetailState();
 
     DetailContract.Router router = new DetailRouter(mediator);

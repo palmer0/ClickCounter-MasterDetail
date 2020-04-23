@@ -13,6 +13,8 @@ public interface MasterContract {
     void injectPresenter(Presenter presenter);
 
     void onDataUpdated(MasterViewModel viewModel);
+    void navigateToNextScreen();
+
   }
 
   interface Presenter {
@@ -42,7 +44,6 @@ public interface MasterContract {
   }
 
   interface Router {
-    void navigateToNextScreen();
     void passStateToNextScreen(MasterToDetailState state);
     DetailToMasterState getStateFromNextScreen();
 

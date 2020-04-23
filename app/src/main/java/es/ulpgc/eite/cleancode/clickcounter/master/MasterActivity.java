@@ -1,5 +1,6 @@
 package es.ulpgc.eite.cleancode.clickcounter.master;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -7,7 +8,9 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.eite.cleancode.clickcounter.R;
+import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
 import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
+import es.ulpgc.eite.cleancode.clickcounter.detail.DetailActivity;
 
 public class MasterActivity
     extends AppCompatActivity implements MasterContract.View {
@@ -21,6 +24,10 @@ public class MasterActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_master);
     getSupportActionBar().setTitle(R.string.title_master);
+
+    if (savedInstanceState == null) {
+      AppMediator.resetInstance();
+    }
 
     // do the setup
     MasterScreen.configure(this);
@@ -83,6 +90,12 @@ public class MasterActivity
         })
     );
 
+  }
+
+  @Override
+  public void navigateToNextScreen() {
+    Intent intent = new Intent(this, DetailActivity.class);
+    startActivity(intent);
   }
 
   @Override

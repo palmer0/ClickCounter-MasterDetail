@@ -95,7 +95,7 @@ public class MasterPresenter implements MasterContract.Presenter {
         model.getStoredCounter(counter.id), model.getStoredNumOfClick()
     ));
 
-    router.navigateToNextScreen();
+    view.get().navigateToNextScreen();
   }
 
   @Override
