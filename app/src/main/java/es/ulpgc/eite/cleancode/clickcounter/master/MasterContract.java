@@ -4,8 +4,6 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 
 import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
-import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
-import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 
 public interface MasterContract {
 
@@ -20,7 +18,7 @@ public interface MasterContract {
   interface Presenter {
     void injectView(WeakReference<View> view);
     void injectModel(Model model);
-    void injectRouter(Router router);
+    //void injectRouter(Router router);
 
     void onResume();
     void onStart();
@@ -43,9 +41,9 @@ public interface MasterContract {
     void onIncrementNumOfClicks();
   }
 
-  interface Router {
-    void passStateToNextScreen(MasterToDetailState state);
-    DetailToMasterState getStateFromNextScreen();
-
-  }
+//  interface Router {
+//    void passStateToNextScreen(MasterToDetailState state);
+//    DetailToMasterState getStateFromNextScreen();
+//
+//  }
 }

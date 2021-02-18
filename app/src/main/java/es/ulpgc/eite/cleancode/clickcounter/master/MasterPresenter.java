@@ -1,7 +1,10 @@
 package es.ulpgc.eite.cleancode.clickcounter.master;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
 import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
@@ -13,11 +16,17 @@ public class MasterPresenter implements MasterContract.Presenter {
   private WeakReference<MasterContract.View> view;
   private MasterState state;
   private MasterContract.Model model;
-  private MasterContract.Router router;
+  //private MasterContract.Router router;
+  private AppMediator mediator;
 
-  public MasterPresenter(MasterState state) {
-    this.state = state;
+  public MasterPresenter(AppMediator mediator) {
+    this.mediator = mediator;
+    state = mediator.getMasterState();
   }
+
+//  public MasterPresenter(MasterState state) {
+//    this.state = state;
+//  }
 
   @Override
   public void onStart() {
@@ -43,7 +52,8 @@ public class MasterPresenter implements MasterContract.Presenter {
     // Log.e(TAG, "onResume()");
 
     // use passed state if is necessary
-    DetailToMasterState savedState = router.getStateFromNextScreen();
+    DetailToMasterState savedState = getStateFromNextScreen();
+    //DetailToMasterState savedState = router.getStateFromNextScreen();
     if (savedState != null) {
 
       // update the model if is necessary
@@ -75,6 +85,18 @@ public class MasterPresenter implements MasterContract.Presenter {
     // Log.e(TAG, "onDestroy()");
   }
 
+  private void passStateToNextScreen(MasterToDetailState state) {
+    Log.e(TAG, "counter: " + state.counter);
+    Log.e(TAG, "clicks: " + state.clicks);
+
+    mediator.setMasterNextScreenState(state);
+  }
+
+
+  private DetailToMasterState getStateFromNextScreen() {
+    return mediator.getMasterNextScreenState();
+  }
+
   @Override
   public void onButtonPressed() {
     // Log.e(TAG, "onButtonPressed()");
@@ -91,7 +113,11 @@ public class MasterPresenter implements MasterContract.Presenter {
     model.onIncrementCounter(counter);
     model.onIncrementNumOfClicks();
 
-    router.passStateToNextScreen(new MasterToDetailState(
+//    router.passStateToNextScreen(new MasterToDetailState(
+//        model.getStoredCounter(counter.id), model.getStoredNumOfClick()
+//    ));
+
+    passStateToNextScreen(new MasterToDetailState(
         model.getStoredCounter(counter.id), model.getStoredNumOfClick()
     ));
 
@@ -108,8 +134,8 @@ public class MasterPresenter implements MasterContract.Presenter {
     this.model = model;
   }
 
-  @Override
-  public void injectRouter(MasterContract.Router router) {
-    this.router = router;
-  }
+//  @Override
+//  public void injectRouter(MasterContract.Router router) {
+//    this.router = router;
+//  }
 }

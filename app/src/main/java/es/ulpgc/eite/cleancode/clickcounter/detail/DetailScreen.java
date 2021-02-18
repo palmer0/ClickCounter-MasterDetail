@@ -14,13 +14,14 @@ public class DetailScreen {
         new WeakReference<>((FragmentActivity) view);
 
     AppMediator mediator = AppMediator.getInstance();
-    DetailState state = mediator.getDetailState();
+    //DetailState state = mediator.getDetailState();
 
-    DetailContract.Router router = new DetailRouter(mediator);
-    DetailContract.Presenter presenter = new DetailPresenter(state);
+    //DetailContract.Router router = new DetailRouter(mediator);
+    //DetailContract.Presenter presenter = new DetailPresenter(state);
+    DetailContract.Presenter presenter = new DetailPresenter(mediator);
     DetailContract.Model model = new DetailModel();
     presenter.injectModel(model);
-    presenter.injectRouter(router);
+    //presenter.injectRouter(router);
     presenter.injectView(new WeakReference<>(view));
 
     view.injectPresenter(presenter);

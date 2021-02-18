@@ -2,6 +2,7 @@ package es.ulpgc.eite.cleancode.clickcounter.detail;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 
@@ -12,11 +13,17 @@ public class DetailPresenter implements DetailContract.Presenter {
   private WeakReference<DetailContract.View> view;
   private DetailState state;
   private DetailContract.Model model;
-  private DetailContract.Router router;
+  //private DetailContract.Router router;
+  private AppMediator mediator;
 
-  public DetailPresenter(DetailState state) {
-    this.state = state;
+  public DetailPresenter(AppMediator mediator) {
+    this.mediator = mediator;
+    state = mediator.getDetailState();
   }
+
+//  public DetailPresenter(DetailState state) {
+//    this.state = state;
+//  }
 
   @Override
   public void onStart() {
@@ -28,7 +35,8 @@ public class DetailPresenter implements DetailContract.Presenter {
     }
 
     // use passed state if is necessary
-    MasterToDetailState savedState = router.getStateFromPreviousScreen();
+    MasterToDetailState savedState = getStateFromPreviousScreen();
+    //MasterToDetailState savedState = router.getStateFromPreviousScreen();
     if (savedState != null) {
 
       // update the model if is necessary
@@ -61,9 +69,13 @@ public class DetailPresenter implements DetailContract.Presenter {
   public void onBackPressed() {
     // Log.e(TAG, "onBackPressed()");
 
-    router.passStateToPreviousScreen(new DetailToMasterState(
+    passStateToPreviousScreen(new DetailToMasterState(
         model.getStoredCounter(), model.getStoredNumOfClick()
     ));
+
+//    router.passStateToPreviousScreen(new DetailToMasterState(
+//        model.getStoredCounter(), model.getStoredNumOfClick()
+//    ));
   }
 
   @Override
@@ -74,6 +86,14 @@ public class DetailPresenter implements DetailContract.Presenter {
   @Override
   public void onDestroy() {
     // Log.e(TAG, "onDestroy()");
+  }
+
+  private void passStateToPreviousScreen(DetailToMasterState state) {
+    mediator.setDetailPreviousScreenState(state);
+  }
+
+  private MasterToDetailState getStateFromPreviousScreen() {
+    return mediator.getDetailPreviousScreenState();
   }
 
   @Override
@@ -96,8 +116,8 @@ public class DetailPresenter implements DetailContract.Presenter {
     this.model = model;
   }
 
-  @Override
-  public void injectRouter(DetailContract.Router router) {
-    this.router = router;
-  }
+//  @Override
+//  public void injectRouter(DetailContract.Router router) {
+//    this.router = router;
+//  }
 }
