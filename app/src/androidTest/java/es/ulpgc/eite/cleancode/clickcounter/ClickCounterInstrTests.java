@@ -14,6 +14,7 @@ import es.ulpgc.eite.cleancode.clickcounter.master.MasterActivity;
 
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
+@SuppressWarnings("deprecation")
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class ClickCounterInstrTests {
