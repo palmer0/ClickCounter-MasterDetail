@@ -4,7 +4,7 @@ import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 
 public class DetailModel implements DetailContract.Model {
 
-  public static String TAG = DetailModel.class.getSimpleName();
+  public static String TAG = "ClickCounter-MasterDetail.DetailModel";
 
   private CounterData counter;
   private Integer clicks;

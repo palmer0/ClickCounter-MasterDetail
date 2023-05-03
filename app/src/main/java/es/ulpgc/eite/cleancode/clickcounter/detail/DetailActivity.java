@@ -11,7 +11,7 @@ import es.ulpgc.eite.cleancode.clickcounter.R;
 public class DetailActivity
     extends AppCompatActivity implements DetailContract.View {
 
-  public static String TAG = DetailActivity.class.getSimpleName();
+  public static String TAG = "ClickCounter-MasterDetail.DetailActivity";
 
   private DetailContract.Presenter presenter;
 

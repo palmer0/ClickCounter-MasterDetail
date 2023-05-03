@@ -11,7 +11,7 @@ import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 
 public class MasterPresenter implements MasterContract.Presenter {
 
-  public static String TAG = MasterPresenter.class.getSimpleName();
+  public static String TAG = "ClickCounter-MasterDetail.MasterPresenter";
 
   private WeakReference<MasterContract.View> view;
   private MasterState state;
@@ -30,26 +30,27 @@ public class MasterPresenter implements MasterContract.Presenter {
 
   @Override
   public void onStart() {
-    // Log.e(TAG, "onStart()");
+    Log.e(TAG, "onStart()");
 
-    // initialize the state if is necessary
-    if (state == null) {
-      state = new MasterState();
-    }
+    // initialize the state 
+    state = new MasterState();
 
   }
 
   @Override
   public void onRestart() {
-    // Log.e(TAG, "onRestart()");
+    Log.e(TAG, "onRestart()");
 
+    // get back the state 
+    state = mediator.getMasterState();
+    
     // update the model if is necessary
     model.onRestartScreen(state.counters, state.clicks);
   }
 
   @Override
   public void onResume() {
-    // Log.e(TAG, "onResume()");
+    Log.e(TAG, "onResume()");
 
     // use passed state if is necessary
     DetailToMasterState savedState = getStateFromNextScreen();
@@ -72,17 +73,19 @@ public class MasterPresenter implements MasterContract.Presenter {
 
   @Override
   public void onBackPressed() {
-    // Log.e(TAG, "onBackPressed()");
+    Log.e(TAG, "onBackPressed()");
   }
 
   @Override
   public void onPause() {
-    // Log.e(TAG, "onPause()");
+    Log.e(TAG, "onPause()");
+
+    mediator.setMasterState(state);
   }
 
   @Override
   public void onDestroy() {
-    // Log.e(TAG, "onDestroy()");
+    Log.e(TAG, "onDestroy()");
   }
 
   private void passStateToNextScreen(MasterToDetailState state) {
@@ -99,7 +102,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 
   @Override
   public void onButtonPressed() {
-    // Log.e(TAG, "onButtonPressed()");
+    Log.e(TAG, "onButtonPressed()");
 
     model.onAddCounter(new CounterData());
 
@@ -108,7 +111,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 
   @Override
   public void onListPressed(CounterData counter) {
-    // Log.e(TAG, "onListPressed()");
+    Log.e(TAG, "onListPressed()");
 
     model.onIncrementCounter(counter);
     model.onIncrementNumOfClicks();

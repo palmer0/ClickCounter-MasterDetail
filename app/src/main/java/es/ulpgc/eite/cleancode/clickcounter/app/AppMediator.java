@@ -15,8 +15,8 @@ public class AppMediator {
 
 
   private AppMediator() {
-    detailState= new DetailState();
-    masterState= new MasterState();
+    //detailState= new DetailState();
+    //masterState= new MasterState();
 
   }
 
@@ -30,6 +30,14 @@ public class AppMediator {
 
   public static void resetInstance() {
     instance=null;
+  }
+
+  public void setDetailState(DetailState state) {
+    this.detailState = state;
+  }
+
+  public void setMasterState(MasterState state) {
+    this.masterState = state;
   }
 
   public DetailState getDetailState() {

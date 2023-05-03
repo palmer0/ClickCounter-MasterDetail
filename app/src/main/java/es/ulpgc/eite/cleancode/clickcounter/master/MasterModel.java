@@ -7,7 +7,7 @@ import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 
 public class MasterModel implements MasterContract.Model {
 
-  public static String TAG = MasterModel.class.getSimpleName();
+  public static String TAG = "ClickCounter-MasterDetail.MasterModel";
 
   private List<CounterData> counters;
   public Integer clicks;

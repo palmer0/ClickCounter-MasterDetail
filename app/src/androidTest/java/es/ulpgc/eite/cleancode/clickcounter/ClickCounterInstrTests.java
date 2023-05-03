@@ -1,22 +1,25 @@
 package es.ulpgc.eite.cleancode.clickcounter;
 
 
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.uiautomator.UiDevice;
 
+import org.junit.FixMethodOrder;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
 import es.ulpgc.eite.cleancode.clickcounter.master.MasterActivity;
-
-import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 @SuppressWarnings("deprecation")
 @RunWith(AndroidJUnit4.class)
 @LargeTest
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ClickCounterInstrTests {
 
 
@@ -70,7 +73,7 @@ public class ClickCounterInstrTests {
     */
 
     @Test
-    public void testCrearContadorEnMaestro() {
+    public void test01CrearContadorEnMaestro() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // When pulsar boton master
@@ -82,7 +85,7 @@ public class ClickCounterInstrTests {
     }
 
     @Test
-    public void testCrearContadorEnMaestroConRotacion() {
+    public void test02CrearContadorEnMaestroConRotacion() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master
@@ -96,7 +99,7 @@ public class ClickCounterInstrTests {
     }
     
     @Test
-    public void testPulsarEnContadorDeMaestro() {
+    public void test03PulsarEnContadorDeMaestro() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master
@@ -114,7 +117,7 @@ public class ClickCounterInstrTests {
     }
 
     @Test
-    public void testPulsarEnContadorDeMaestroConRotacion() {
+    public void test04PulsarEnContadorDeMaestroConRotacion() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master
@@ -134,7 +137,7 @@ public class ClickCounterInstrTests {
     }
 
     @Test
-    public void testPulsarEnContadorDeDetalle() {
+    public void test05PulsarEnContadorDeDetalle() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master
@@ -158,7 +161,7 @@ public class ClickCounterInstrTests {
     }
 
     @Test
-    public void testPulsarEnContadorDeDetalleConRotacion() {
+    public void test06PulsarEnContadorDeDetalleConRotacion() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master
@@ -184,7 +187,7 @@ public class ClickCounterInstrTests {
     }
 
     @Test
-    public void testPulsarEnRegresarDeDetalle() {
+    public void test07PulsarEnRegresarDeDetalle() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master
@@ -215,7 +218,7 @@ public class ClickCounterInstrTests {
 
 
     @Test
-    public void testPulsarEnRegresarDeDetalleConRotacion() {
+    public void test08PulsarEnRegresarDeDetalleConRotacion() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master
@@ -248,7 +251,7 @@ public class ClickCounterInstrTests {
 
     
     @Test
-    public void testCrearVariosContadoresEnMaestro() {
+    public void test09CrearVariosContadoresEnMaestro() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // When pulsar boton master numero de veces "3"
@@ -264,7 +267,7 @@ public class ClickCounterInstrTests {
     }
 
     @Test
-    public void testCrearVariosContadoresEnMaestroConRotacion() {
+    public void test10CrearVariosContadoresEnMaestroConRotacion() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master numero de veces "3"
@@ -282,7 +285,7 @@ public class ClickCounterInstrTests {
     }
 
     @Test
-    public void testPulsarVariasVecesEnContadorDeMaestro() {
+    public void test11PulsarVariasVecesEnContadorDeMaestro() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master numero de veces "3"
@@ -305,7 +308,7 @@ public class ClickCounterInstrTests {
 
 
     @Test
-    public void testPulsarVariasVecesEnContadorDeMaestroConRotacion() {
+    public void test12PulsarVariasVecesEnContadorDeMaestroConRotacion() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master numero de veces "3"
@@ -329,7 +332,7 @@ public class ClickCounterInstrTests {
     }
     
     @Test
-    public void testPulsarVariasVecesEnContadoresDeMaestro() {
+    public void test13PulsarVariasVecesEnContadoresDeMaestro() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master numero de veces "3"
@@ -353,7 +356,7 @@ public class ClickCounterInstrTests {
     }
 
     @Test
-    public void testPulsarVariasVecesEnContadoresDeMaestroConRotacion() {
+    public void test14PulsarVariasVecesEnContadoresDeMaestroConRotacion() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master numero de veces "3"
@@ -379,7 +382,7 @@ public class ClickCounterInstrTests {
     }
     
     @Test
-    public void testPulsarEnContadorDeDetalles() {
+    public void test15PulsarEnContadorDeDetalles() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master numero de veces "3"
@@ -411,7 +414,7 @@ public class ClickCounterInstrTests {
     }
 
     @Test
-    public void testPulsarEnContadorDeDetallesConRotacion() {
+    public void test16PulsarEnContadorDeDetallesConRotacion() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master numero de veces "3"
@@ -445,7 +448,7 @@ public class ClickCounterInstrTests {
     }
 
     @Test
-    public void testPulsarVariasVecesContadorDeDetalles() {
+    public void test17PulsarVariasVecesContadorDeDetalles() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master numero de veces "3"
@@ -475,7 +478,7 @@ public class ClickCounterInstrTests {
     }
     
     @Test
-    public void testPulsarVariasVecesContadorDeDetallesConRotacion() {
+    public void test18PulsarVariasVecesContadorDeDetallesConRotacion() {
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
         // And pulsar boton master numero de veces "3"

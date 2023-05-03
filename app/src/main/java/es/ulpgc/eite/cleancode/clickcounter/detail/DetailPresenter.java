@@ -1,5 +1,7 @@
 package es.ulpgc.eite.cleancode.clickcounter.detail;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
@@ -8,7 +10,7 @@ import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 
 public class DetailPresenter implements DetailContract.Presenter {
 
-  public static String TAG = DetailPresenter.class.getSimpleName();
+  public static String TAG = "ClickCounter-MasterDetail.DetailPresenter";
 
   private WeakReference<DetailContract.View> view;
   private DetailState state;
@@ -18,7 +20,7 @@ public class DetailPresenter implements DetailContract.Presenter {
 
   public DetailPresenter(AppMediator mediator) {
     this.mediator = mediator;
-    state = mediator.getDetailState();
+    
   }
 
 //  public DetailPresenter(DetailState state) {
@@ -27,12 +29,10 @@ public class DetailPresenter implements DetailContract.Presenter {
 
   @Override
   public void onStart() {
-    // Log.e(TAG, "onStart()");
+    Log.e(TAG, "onStart()");
 
-    // initialize the state if is necessary
-    if (state == null) {
-      state = new DetailState();
-    }
+    // initialize the state 
+    state = new DetailState();
 
     // use passed state if is necessary
     MasterToDetailState savedState = getStateFromPreviousScreen();
@@ -46,15 +46,18 @@ public class DetailPresenter implements DetailContract.Presenter {
 
   @Override
   public void onRestart() {
-    // Log.e(TAG, "onRestart()");
+    Log.e(TAG, "onRestart()");
 
+    // get back the state 
+    state = mediator.getDetailState();
+    
     // update the model if is necessary
     model.onRestartScreen(state.counter, state.clicks);
   }
 
   @Override
   public void onResume() {
-    // Log.e(TAG, "onResume()");
+    Log.e(TAG, "onResume()");
 
     // call the model and update the state
     state.counter = model.getStoredCounter();
@@ -67,7 +70,7 @@ public class DetailPresenter implements DetailContract.Presenter {
 
   @Override
   public void onBackPressed() {
-    // Log.e(TAG, "onBackPressed()");
+    Log.e(TAG, "onBackPressed()");
 
     passStateToPreviousScreen(new DetailToMasterState(
         model.getStoredCounter(), model.getStoredNumOfClick()
@@ -80,12 +83,14 @@ public class DetailPresenter implements DetailContract.Presenter {
 
   @Override
   public void onPause() {
-    // Log.e(TAG, "onPause()");
+    Log.e(TAG, "onPause()");
+
+    mediator.setDetailState(state);
   }
 
   @Override
   public void onDestroy() {
-    // Log.e(TAG, "onDestroy()");
+    Log.e(TAG, "onDestroy()");
   }
 
   private void passStateToPreviousScreen(DetailToMasterState state) {
@@ -98,7 +103,7 @@ public class DetailPresenter implements DetailContract.Presenter {
 
   @Override
   public void onButtonPressed() {
-    // Log.e(TAG, "onButtonPressed()");
+    Log.e(TAG, "onButtonPressed()");
 
     model.onIncrementCounter();
     model.onIncrementNumOfClicks();
