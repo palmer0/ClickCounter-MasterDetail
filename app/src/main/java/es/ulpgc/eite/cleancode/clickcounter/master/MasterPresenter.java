@@ -20,7 +20,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 
   public MasterPresenter(AppMediator mediator) {
     this.mediator = mediator;
-    state = mediator.getMasterState();
+    //state = mediator.getMasterState();
   }
 
   @Override
