@@ -14,11 +14,14 @@ import org.robolectric.annotation.Config;
 
 import es.ulpgc.eite.cleancode.clickcounter.master.MasterActivity;
 
+
+// Project: ClickCounter-MasterDetail
+// Created by Luis Hernandez 
+// Copyright (c) 2025 EITE (ULPGC)
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 30)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class RobolectricTests {
-
+public class RobolectricAppTests {
 
     private ActivityController<MasterActivity> activityController;
     private MasterActivity activity;
@@ -26,6 +29,7 @@ public class RobolectricTests {
 
     @Before
     public void setUp() {
+        // Se crea y configura la actividad con Robolectric
         activityController = Robolectric.buildActivity(MasterActivity.class).setup();
         activity = activityController.get();
         steps = new RobolectricTestsSteps(activity);
@@ -36,6 +40,7 @@ public class RobolectricTests {
      * ejecutando el ciclo de recreación de la actividad.
      */
     private void rotateScreen() {
+        // Cambia la orientación a landscape
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         activityController.configurationChange();
     }
@@ -64,11 +69,8 @@ public class RobolectricTests {
         steps.mostrarContadorEnListaEnPosicionP1ConValorP2("0", "0");
         steps.mostrarListaConNumeroDeContadoresP1("1");
         steps.pulsarBotonContadorEnPosicionP1("0");
-
-        // Capturar el Intent y lanzar DetailActivity para continuar la verificación
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("1");
-        detailSteps.mostrarNumeroDeClicksConValorP1("1");
+        steps.mostrarContadorConValorP1("1");
+        steps.mostrarNumeroDeClicksConValorP1("1");
     }
 
     @Test
@@ -79,10 +81,8 @@ public class RobolectricTests {
         steps.mostrarListaConNumeroDeContadoresP1("1");
         steps.pulsarBotonContadorEnPosicionP1("0");
         rotateScreen();
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("1");
-        detailSteps.mostrarNumeroDeClicksConValorP1("1");
+        steps.mostrarContadorConValorP1("1");
+        steps.mostrarNumeroDeClicksConValorP1("1");
     }
 
     @Test
@@ -92,14 +92,11 @@ public class RobolectricTests {
         steps.mostrarContadorEnListaEnPosicionP1ConValorP2("0", "0");
         steps.mostrarListaConNumeroDeContadoresP1("1");
         steps.pulsarBotonContadorEnPosicionP1("0");
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("1");
-        detailSteps.mostrarNumeroDeClicksConValorP1("1");
-
-        detailSteps.pulsarBotonDetalle();
-        detailSteps.mostrarContadorConValorP1("2");
-        detailSteps.mostrarNumeroDeClicksConValorP1("2");
+        steps.mostrarContadorConValorP1("1");
+        steps.mostrarNumeroDeClicksConValorP1("1");
+        steps.pulsarBotonDetalle();
+        steps.mostrarContadorConValorP1("2");
+        steps.mostrarNumeroDeClicksConValorP1("2");
     }
 
     @Test
@@ -109,15 +106,12 @@ public class RobolectricTests {
         steps.mostrarContadorEnListaEnPosicionP1ConValorP2("0", "0");
         steps.mostrarListaConNumeroDeContadoresP1("1");
         steps.pulsarBotonContadorEnPosicionP1("0");
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("1");
-        detailSteps.mostrarNumeroDeClicksConValorP1("1");
-
-        detailSteps.pulsarBotonDetalle();
+        steps.mostrarContadorConValorP1("1");
+        steps.mostrarNumeroDeClicksConValorP1("1");
+        steps.pulsarBotonDetalle();
         rotateScreen();
-        detailSteps.mostrarContadorConValorP1("2");
-        detailSteps.mostrarNumeroDeClicksConValorP1("2");
+        steps.mostrarContadorConValorP1("2");
+        steps.mostrarNumeroDeClicksConValorP1("2");
     }
 
     @Test
@@ -127,16 +121,12 @@ public class RobolectricTests {
         steps.mostrarContadorEnListaEnPosicionP1ConValorP2("0", "0");
         steps.mostrarListaConNumeroDeContadoresP1("1");
         steps.pulsarBotonContadorEnPosicionP1("0");
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("1");
-        detailSteps.mostrarNumeroDeClicksConValorP1("1");
-        detailSteps.pulsarBotonDetalle();
-        detailSteps.mostrarContadorConValorP1("2");
-        detailSteps.mostrarNumeroDeClicksConValorP1("2");
-        detailSteps.pulsarBotonRegresar();
-
-        // Regresamos a MasterActivity y verificamos que se actualizó el contador en la lista
+        steps.mostrarContadorConValorP1("1");
+        steps.mostrarNumeroDeClicksConValorP1("1");
+        steps.pulsarBotonDetalle();
+        steps.mostrarContadorConValorP1("2");
+        steps.mostrarNumeroDeClicksConValorP1("2");
+        steps.pulsarBotonRegresar();
         steps.mostrarContadorEnListaEnPosicionP1ConValorP2("0", "2");
         steps.mostrarListaConNumeroDeContadoresP1("1");
     }
@@ -148,16 +138,13 @@ public class RobolectricTests {
         steps.mostrarContadorEnListaEnPosicionP1ConValorP2("0", "0");
         steps.mostrarListaConNumeroDeContadoresP1("1");
         steps.pulsarBotonContadorEnPosicionP1("0");
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("1");
-        detailSteps.mostrarNumeroDeClicksConValorP1("1");
-        detailSteps.pulsarBotonDetalle();
-        detailSteps.mostrarContadorConValorP1("2");
-        detailSteps.mostrarNumeroDeClicksConValorP1("2");
-        detailSteps.pulsarBotonRegresar();
+        steps.mostrarContadorConValorP1("1");
+        steps.mostrarNumeroDeClicksConValorP1("1");
+        steps.pulsarBotonDetalle();
+        steps.mostrarContadorConValorP1("2");
+        steps.mostrarNumeroDeClicksConValorP1("2");
+        steps.pulsarBotonRegresar();
         rotateScreen();
-
         steps.mostrarContadorEnListaEnPosicionP1ConValorP2("0", "2");
         steps.mostrarListaConNumeroDeContadoresP1("1");
     }
@@ -192,10 +179,8 @@ public class RobolectricTests {
         steps.mostrarContadorEnListaEnPosicionP1ConValorP2("2", "0");
         steps.mostrarListaConNumeroDeContadoresP1("3");
         steps.pulsarBotonContadorEnPosicionP1("2");
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("1");
-        detailSteps.mostrarNumeroDeClicksConValorP1("1");
+        steps.mostrarContadorConValorP1("1");
+        steps.mostrarNumeroDeClicksConValorP1("1");
     }
 
     @Test
@@ -208,10 +193,8 @@ public class RobolectricTests {
         steps.mostrarListaConNumeroDeContadoresP1("3");
         steps.pulsarBotonContadorEnPosicionP1("2");
         rotateScreen();
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("1");
-        detailSteps.mostrarNumeroDeClicksConValorP1("1");
+        steps.mostrarContadorConValorP1("1");
+        steps.mostrarNumeroDeClicksConValorP1("1");
     }
 
     @Test
@@ -224,10 +207,8 @@ public class RobolectricTests {
         steps.mostrarListaConNumeroDeContadoresP1("3");
         steps.pulsarBotonContadorEnPosicionP1NumeroDeVecesP2("1", "2");
         steps.pulsarBotonContadorEnPosicionP1("2");
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("1");
-        detailSteps.mostrarNumeroDeClicksConValorP1("3");
+        steps.mostrarContadorConValorP1("1");
+        steps.mostrarNumeroDeClicksConValorP1("3");
     }
 
     @Test
@@ -241,10 +222,8 @@ public class RobolectricTests {
         steps.pulsarBotonContadorEnPosicionP1NumeroDeVecesP2("1", "2");
         steps.pulsarBotonContadorEnPosicionP1("2");
         rotateScreen();
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("1");
-        detailSteps.mostrarNumeroDeClicksConValorP1("3");
+        steps.mostrarContadorConValorP1("1");
+        steps.mostrarNumeroDeClicksConValorP1("3");
     }
 
     @Test
@@ -258,14 +237,11 @@ public class RobolectricTests {
         steps.pulsarBotonContadorEnPosicionP1NumeroDeVecesP2("1", "2");
         steps.mostrarContadorEnListaEnPosicionP1ConValorP2("1", "2");
         steps.pulsarBotonContadorEnPosicionP1("1");
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("3");
-        detailSteps.mostrarNumeroDeClicksConValorP1("3");
-
-        detailSteps.pulsarBotonDetalle();
-        detailSteps.mostrarContadorConValorP1("4");
-        detailSteps.mostrarNumeroDeClicksConValorP1("4");
+        steps.mostrarContadorConValorP1("3");
+        steps.mostrarNumeroDeClicksConValorP1("3");
+        steps.pulsarBotonDetalle();
+        steps.mostrarContadorConValorP1("4");
+        steps.mostrarNumeroDeClicksConValorP1("4");
     }
 
     @Test
@@ -278,15 +254,12 @@ public class RobolectricTests {
         steps.mostrarListaConNumeroDeContadoresP1("3");
         steps.pulsarBotonContadorEnPosicionP1NumeroDeVecesP2("1", "2");
         steps.pulsarBotonContadorEnPosicionP1("1");
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("3");
-        detailSteps.mostrarNumeroDeClicksConValorP1("3");
-
-        detailSteps.pulsarBotonDetalle();
+        steps.mostrarContadorConValorP1("3");
+        steps.mostrarNumeroDeClicksConValorP1("3");
+        steps.pulsarBotonDetalle();
         rotateScreen();
-        detailSteps.mostrarContadorConValorP1("4");
-        detailSteps.mostrarNumeroDeClicksConValorP1("4");
+        steps.mostrarContadorConValorP1("4");
+        steps.mostrarNumeroDeClicksConValorP1("4");
     }
 
     @Test
@@ -299,14 +272,11 @@ public class RobolectricTests {
         steps.mostrarListaConNumeroDeContadoresP1("3");
         steps.pulsarBotonContadorEnPosicionP1NumeroDeVecesP2("1", "2");
         steps.pulsarBotonContadorEnPosicionP1("2");
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("1");
-        detailSteps.mostrarNumeroDeClicksConValorP1("3");
-
-        detailSteps.pulsarBotonDetalleNumeroDeVecesP1("3");
-        detailSteps.mostrarContadorConValorP1("4");
-        detailSteps.mostrarNumeroDeClicksConValorP1("6");
+        steps.mostrarContadorConValorP1("1");
+        steps.mostrarNumeroDeClicksConValorP1("3");
+        steps.pulsarBotonDetalleNumeroDeVecesP1("3");
+        steps.mostrarContadorConValorP1("4");
+        steps.mostrarNumeroDeClicksConValorP1("6");
     }
 
     @Test
@@ -319,14 +289,11 @@ public class RobolectricTests {
         steps.mostrarListaConNumeroDeContadoresP1("3");
         steps.pulsarBotonContadorEnPosicionP1NumeroDeVecesP2("1", "2");
         steps.pulsarBotonContadorEnPosicionP1("2");
-
-        RobolectricTestsSteps detailSteps = steps.obtenerDetailSteps();
-        detailSteps.mostrarContadorConValorP1("1");
-        detailSteps.mostrarNumeroDeClicksConValorP1("3");
-
-        detailSteps.pulsarBotonDetalleNumeroDeVecesP1("3");
+        steps.mostrarContadorConValorP1("1");
+        steps.mostrarNumeroDeClicksConValorP1("3");
+        steps.pulsarBotonDetalleNumeroDeVecesP1("3");
         rotateScreen();
-        detailSteps.mostrarContadorConValorP1("4");
-        detailSteps.mostrarNumeroDeClicksConValorP1("6");
+        steps.mostrarContadorConValorP1("4");
+        steps.mostrarNumeroDeClicksConValorP1("6");
     }
 }

@@ -1,25 +1,25 @@
 package es.ulpgc.eite.cleancode.clickcounter;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Looper;
-import android.view.View;
-import android.widget.ListView;
-import android.widget.TextView;
-
 import static org.junit.Assert.assertEquals;
 import static org.robolectric.Shadows.shadowOf;
 
-import org.robolectric.Robolectric;
+import android.app.Activity;
+import android.os.Looper;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
-import es.ulpgc.eite.cleancode.clickcounter.detail.DetailActivity;
 
-public class RobolectricTestsSteps {
+// Project: ClickCounter-MasterDetail
+// Created by Luis Hernandez 
+// Copyright (c) 2025 EITE (ULPGC)
+public class RobolectricAppTestsSteps {
 
     private Activity activity;
 
-    public RobolectricTestsSteps(Activity activity) {
+    public RobolectricAppTestsSteps(Activity activity) {
         this.activity = activity;
     }
 
@@ -29,10 +29,9 @@ public class RobolectricTestsSteps {
 
         ListView list = activity.findViewById(R.id.list);
 
-        list.measure(
-            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
-        );
+        // Forzar el layout del ListView
+        list.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
         list.layout(0, 0, list.getMeasuredWidth(), list.getMeasuredHeight());
 
         assertEquals(
@@ -41,7 +40,16 @@ public class RobolectricTestsSteps {
         );
     }
 
+
     public void pulsarBotonMaster() {
+
+        /*
+        // Opción 1: Usar el tipo FloatingActionButton
+        FloatingActionButton master = activity.findViewById(R.id.master);
+        master.performClick();
+        */
+
+        // Opción 2: Usar el tipo View
         View master = activity.findViewById(R.id.master);
         master.performClick();
     }
@@ -63,7 +71,7 @@ public class RobolectricTestsSteps {
         int value = item.value;
 
         assertEquals(
-            "El contador en la posición "+ pos +" debe tener el valor "+ expectedValue,
+            "El contador en la posición " + pos + " debe tener el valor " + expectedValue,
             expectedValue, value
         );
     }
@@ -94,6 +102,58 @@ public class RobolectricTestsSteps {
 
     public void pulsarBotonContadorEnPosicionP1(String p1) {
 
+        /*
+        // Recupera el Intent de la actividad iniciada
+        Intent nextIntent = shadowOf(activity).getNextStartedActivity();
+
+        // Construye la DetailActivity usando el Intent recuperado
+        DetailActivity detailActivity =
+            Robolectric.buildActivity(DetailActivity.class, nextIntent).setup().get();
+
+        // Crea una nueva instancia de steps para DetailActivity
+        //RobolectricTestsSteps detailSteps = new RobolectricTestsSteps(detailActivity);
+        */
+
+
+        int pos = Integer.valueOf(p1);
+
+        ListView list = activity.findViewById(R.id.list);
+        //ListView list = detailActivity.findViewById(R.id.list);
+
+        // Forzar el layout del ListView
+        list.measure(
+            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+        );
+        list.layout(0, 0, list.getMeasuredWidth(), list.getMeasuredHeight());
+
+        // Obtener la vista del ítem en la posición indicada
+        View item = list.getChildAt(pos);
+
+        if (item == null) {
+
+            // Si la vista del ítem aún no se ha creado, obtenerla manualmente
+            item = list.getAdapter().getView(pos, null, list);
+
+            item.measure(
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+            );
+            item.layout(0, 0, item.getMeasuredWidth(), item.getMeasuredHeight());
+        }
+
+        // Simular el clic directamente en el ítem
+        // para activar el listener configurado en el adaptador
+        item.performClick();
+
+        // Procesar runnables pendientes
+        shadowOf(Looper.getMainLooper()).idle();
+    }
+
+
+    /*
+    public void pulsarBotonContadorEnPosicionP1(String p1) {
+
         int pos = Integer.valueOf(p1);
 
         ListView list = activity.findViewById(R.id.list);
@@ -107,6 +167,8 @@ public class RobolectricTestsSteps {
         View item = list.getChildAt(pos);
 
         if (item == null) {
+
+            // Si la vista del ítem aún no se ha creado, forzar su obtención
             item = list.getAdapter().getView(pos, null, list);
 
             item.measure(
@@ -116,58 +178,65 @@ public class RobolectricTestsSteps {
             item.layout(0, 0, item.getMeasuredWidth(), item.getMeasuredHeight());
         }
 
-        // Invocar el clic directamente en el ítem
-        // para activar el listener asignado en el adaptador
-        item.performClick();
+        list.performItemClick(item, pos, list.getAdapter().getItemId(pos));
+
+
+        // Procesa runnables pendientes
         shadowOf(Looper.getMainLooper()).idle();
     }
+    */
 
-    // Actualización: ya no se hace cast a Button, sino que se usa View,
-    // pues el botón de detalle es un FloatingActionButton.
     public void pulsarBotonDetalle() {
-        View detail = activity.findViewById(R.id.detail);
+        Button detail = activity.findViewById(R.id.detail);
         detail.performClick();
+
+        // Procesa runnables pendientes
         shadowOf(Looper.getMainLooper()).idle();
     }
 
     public void pulsarBotonRegresar() {
         activity.onBackPressed();
+
+        // Procesa runnables pendientes
         shadowOf(Looper.getMainLooper()).idle();
     }
 
     public void pulsarBotonMasterNumeroDeVecesP1(String p1) {
+
         int times = Integer.valueOf(p1);
+
         for (int i = 0; i < times; i++) {
             pulsarBotonMaster();
+
+            // Procesa runnables pendientes
             shadowOf(Looper.getMainLooper()).idle();
         }
+
     }
 
     public void pulsarBotonContadorEnPosicionP1NumeroDeVecesP2(String p1, String p2) {
+
         int times = Integer.valueOf(p2);
+
         for (int i = 0; i < times; i++) {
             pulsarBotonContadorEnPosicionP1(p1);
+
+            // Procesa runnables pendientes
             shadowOf(Looper.getMainLooper()).idle();
+
             pulsarBotonRegresar();
         }
     }
 
     public void pulsarBotonDetalleNumeroDeVecesP1(String p1) {
+
         int times = Integer.valueOf(p1);
+
         for (int i = 0; i < times; i++) {
             pulsarBotonDetalle();
+
+            // Procesa runnables pendientes
             shadowOf(Looper.getMainLooper()).idle();
         }
-    }
-
-    /**
-     * Captura el Intent lanzado por MasterActivity, inicia DetailActivity y
-     * devuelve un objeto de pasos para la pantalla de detalle.
-     */
-    public RobolectricTestsSteps obtenerDetailSteps() {
-        Intent detailIntent = shadowOf(activity).getNextStartedActivity();
-        DetailActivity detailActivity =
-            Robolectric.buildActivity(DetailActivity.class, detailIntent).setup().get();
-        return new RobolectricTestsSteps(detailActivity);
     }
 }
