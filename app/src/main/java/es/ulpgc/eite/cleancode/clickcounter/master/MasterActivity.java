@@ -33,10 +33,10 @@ public class MasterActivity
     MasterScreen.configure(this);
 
     if (savedInstanceState == null) {
-      presenter.onStart();
+      presenter.onCreateCalled();
 
     } else {
-      presenter.onRestart();
+      presenter.onRecreateCalled();
     }
   }
 
@@ -45,28 +45,28 @@ public class MasterActivity
     super.onResume();
 
     // load the value
-    presenter.onResume();
+    presenter.onResumeCalled();
   }
 
   @Override
   public void onBackPressed() {
     super.onBackPressed();
 
-    presenter.onBackPressed();
+    presenter.onBackPressedCalled();
   }
 
   @Override
   protected void onPause() {
     super.onPause();
 
-    presenter.onPause();
+    presenter.onPauseCalled();
   }
 
   @Override
   protected void onDestroy() {
     super.onDestroy();
 
-    presenter.onDestroy();
+    presenter.onDestroyCalled();
   }
 
   public void onButtonPressed(View view) {

@@ -20,12 +20,12 @@ public interface MasterContract {
     void injectModel(Model model);
     //void injectRouter(Router router);
 
-    void onResume();
-    void onStart();
-    void onRestart();
-    void onBackPressed();
-    void onPause();
-    void onDestroy();
+    void onResumeCalled();
+    void onCreateCalled();
+    void onRecreateCalled();
+    void onBackPressedCalled();
+    void onPauseCalled();
+    void onDestroyCalled();
     void onButtonPressed();
     void onListPressed(CounterData counter);
   }

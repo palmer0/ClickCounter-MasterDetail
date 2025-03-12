@@ -28,7 +28,7 @@ public class DetailPresenter implements DetailContract.Presenter {
 //  }
 
   @Override
-  public void onStart() {
+  public void onCreateCalled() {
     Log.e(TAG, "onStart()");
 
     // initialize the state 
@@ -45,7 +45,7 @@ public class DetailPresenter implements DetailContract.Presenter {
   }
 
   @Override
-  public void onRestart() {
+  public void onRecreateCalled() {
     Log.e(TAG, "onRestart()");
 
     // get back the state 
@@ -56,7 +56,7 @@ public class DetailPresenter implements DetailContract.Presenter {
   }
 
   @Override
-  public void onResume() {
+  public void onResumeCalled() {
     Log.e(TAG, "onResume()");
 
     // call the model and update the state
@@ -69,7 +69,7 @@ public class DetailPresenter implements DetailContract.Presenter {
   }
 
   @Override
-  public void onBackPressed() {
+  public void onBackPressedCalled() {
     Log.e(TAG, "onBackPressed()");
 
     passStateToPreviousScreen(new DetailToMasterState(
@@ -82,14 +82,14 @@ public class DetailPresenter implements DetailContract.Presenter {
   }
 
   @Override
-  public void onPause() {
+  public void onPauseCalled() {
     Log.e(TAG, "onPause()");
 
     mediator.setDetailState(state);
   }
 
   @Override
-  public void onDestroy() {
+  public void onDestroyCalled() {
     Log.e(TAG, "onDestroy()");
   }
 
@@ -108,7 +108,7 @@ public class DetailPresenter implements DetailContract.Presenter {
     model.onIncrementCounter();
     model.onIncrementNumOfClicks();
 
-    onResume();
+    onResumeCalled();
   }
 
   @Override

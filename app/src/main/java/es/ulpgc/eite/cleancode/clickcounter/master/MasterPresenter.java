@@ -29,7 +29,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 //  }
 
   @Override
-  public void onStart() {
+  public void onCreateCalled() {
     Log.e(TAG, "onStart()");
 
     // initialize the state 
@@ -38,7 +38,7 @@ public class MasterPresenter implements MasterContract.Presenter {
   }
 
   @Override
-  public void onRestart() {
+  public void onRecreateCalled() {
     Log.e(TAG, "onRestart()");
 
     // get back the state 
@@ -49,7 +49,7 @@ public class MasterPresenter implements MasterContract.Presenter {
   }
 
   @Override
-  public void onResume() {
+  public void onResumeCalled() {
     Log.e(TAG, "onResume()");
 
     // use passed state if is necessary
@@ -72,19 +72,19 @@ public class MasterPresenter implements MasterContract.Presenter {
   }
 
   @Override
-  public void onBackPressed() {
+  public void onBackPressedCalled() {
     Log.e(TAG, "onBackPressed()");
   }
 
   @Override
-  public void onPause() {
+  public void onPauseCalled() {
     Log.e(TAG, "onPause()");
 
     mediator.setMasterState(state);
   }
 
   @Override
-  public void onDestroy() {
+  public void onDestroyCalled() {
     Log.e(TAG, "onDestroy()");
   }
 
@@ -106,7 +106,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 
     model.onAddCounter(new CounterData());
 
-    onResume();
+    onResumeCalled();
   }
 
   @Override

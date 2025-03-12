@@ -3,8 +3,6 @@ package es.ulpgc.eite.cleancode.clickcounter.detail;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
-import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
-import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 
 public interface DetailContract {
 
@@ -19,12 +17,12 @@ public interface DetailContract {
     void injectModel(Model model);
     //void injectRouter(Router router);
 
-    void onResume();
-    void onStart();
-    void onRestart();
-    void onBackPressed();
-    void onPause();
-    void onDestroy();
+    void onResumeCalled();
+    void onCreateCalled();
+    void onRecreateCalled();
+    void onBackPressedCalled();
+    void onPauseCalled();
+    void onDestroyCalled();
     void onButtonPressed();
   }
 
