@@ -30,7 +30,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 
   @Override
   public void onCreateCalled() {
-    Log.e(TAG, "onStart()");
+    Log.e(TAG, "onCreateCalled()");
 
     // initialize the state 
     state = new MasterState();
@@ -39,7 +39,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 
   @Override
   public void onRecreateCalled() {
-    Log.e(TAG, "onRestart()");
+    Log.e(TAG, "onRecreateCalled()");
 
     // get back the state 
     state = mediator.getMasterState();
@@ -50,7 +50,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 
   @Override
   public void onResumeCalled() {
-    Log.e(TAG, "onResume()");
+    Log.e(TAG, "onResumeCalled()");
 
     // use passed state if is necessary
     DetailToMasterState savedState = getStateFromNextScreen();
@@ -73,19 +73,19 @@ public class MasterPresenter implements MasterContract.Presenter {
 
   @Override
   public void onBackPressedCalled() {
-    Log.e(TAG, "onBackPressed()");
+    Log.e(TAG, "onBackPressedCalled()");
   }
 
   @Override
   public void onPauseCalled() {
-    Log.e(TAG, "onPause()");
+    Log.e(TAG, "onPauseCalled()");
 
     mediator.setMasterState(state);
   }
 
   @Override
   public void onDestroyCalled() {
-    Log.e(TAG, "onDestroy()");
+    Log.e(TAG, "onDestroyCalled()");
   }
 
   private void passStateToNextScreen(MasterToDetailState state) {
