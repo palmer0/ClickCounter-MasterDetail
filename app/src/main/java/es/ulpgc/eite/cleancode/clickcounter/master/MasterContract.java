@@ -18,7 +18,6 @@ public interface MasterContract {
   interface Presenter {
     void injectView(WeakReference<View> view);
     void injectModel(Model model);
-    //void injectRouter(Router router);
 
     void onResumeCalled();
     void onCreateCalled();
@@ -41,9 +40,4 @@ public interface MasterContract {
     void onIncrementNumOfClicks();
   }
 
-//  interface Router {
-//    void passStateToNextScreen(MasterToDetailState state);
-//    DetailToMasterState getStateFromNextScreen();
-//
-//  }
 }

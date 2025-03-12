@@ -15,7 +15,6 @@ public interface DetailContract {
   interface Presenter {
     void injectView(WeakReference<View> view);
     void injectModel(Model model);
-    //void injectRouter(Router router);
 
     void onResumeCalled();
     void onCreateCalled();
@@ -35,9 +34,4 @@ public interface DetailContract {
     void onIncrementCounter();
   }
 
-//  interface Router {
-//
-//    MasterToDetailState getStateFromPreviousScreen();
-//    void passStateToPreviousScreen(DetailToMasterState state);
-//  }
 }

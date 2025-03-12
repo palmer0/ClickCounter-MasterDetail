@@ -15,17 +15,12 @@ public class DetailPresenter implements DetailContract.Presenter {
   private WeakReference<DetailContract.View> view;
   private DetailState state;
   private DetailContract.Model model;
-  //private DetailContract.Router router;
   private AppMediator mediator;
 
   public DetailPresenter(AppMediator mediator) {
     this.mediator = mediator;
     
   }
-
-//  public DetailPresenter(DetailState state) {
-//    this.state = state;
-//  }
 
   @Override
   public void onCreateCalled() {
@@ -76,9 +71,6 @@ public class DetailPresenter implements DetailContract.Presenter {
         model.getStoredCounter(), model.getStoredNumOfClick()
     ));
 
-//    router.passStateToPreviousScreen(new DetailToMasterState(
-//        model.getStoredCounter(), model.getStoredNumOfClick()
-//    ));
   }
 
   @Override
@@ -121,8 +113,4 @@ public class DetailPresenter implements DetailContract.Presenter {
     this.model = model;
   }
 
-//  @Override
-//  public void injectRouter(DetailContract.Router router) {
-//    this.router = router;
-//  }
 }

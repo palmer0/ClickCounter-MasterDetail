@@ -16,17 +16,12 @@ public class MasterPresenter implements MasterContract.Presenter {
   private WeakReference<MasterContract.View> view;
   private MasterState state;
   private MasterContract.Model model;
-  //private MasterContract.Router router;
   private AppMediator mediator;
 
   public MasterPresenter(AppMediator mediator) {
     this.mediator = mediator;
     state = mediator.getMasterState();
   }
-
-//  public MasterPresenter(MasterState state) {
-//    this.state = state;
-//  }
 
   @Override
   public void onCreateCalled() {
@@ -116,10 +111,6 @@ public class MasterPresenter implements MasterContract.Presenter {
     model.onIncrementCounter(counter);
     model.onIncrementNumOfClicks();
 
-//    router.passStateToNextScreen(new MasterToDetailState(
-//        model.getStoredCounter(counter.id), model.getStoredNumOfClick()
-//    ));
-
     passStateToNextScreen(new MasterToDetailState(
         model.getStoredCounter(counter.id), model.getStoredNumOfClick()
     ));
@@ -137,8 +128,4 @@ public class MasterPresenter implements MasterContract.Presenter {
     this.model = model;
   }
 
-//  @Override
-//  public void injectRouter(MasterContract.Router router) {
-//    this.router = router;
-//  }
 }
