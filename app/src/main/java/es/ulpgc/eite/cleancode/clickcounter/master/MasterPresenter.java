@@ -49,7 +49,6 @@ public class MasterPresenter implements MasterContract.Presenter {
 
     // use passed state if is necessary
     DetailToMasterState savedState = getStateFromNextScreen();
-    //DetailToMasterState savedState = router.getStateFromNextScreen();
     if (savedState != null) {
 
       // update the model if is necessary

@@ -31,7 +31,6 @@ public class DetailPresenter implements DetailContract.Presenter {
 
     // use passed state if is necessary
     MasterToDetailState savedState = getStateFromPreviousScreen();
-    //MasterToDetailState savedState = router.getStateFromPreviousScreen();
     if (savedState != null) {
 
       // update the model if is necessary
