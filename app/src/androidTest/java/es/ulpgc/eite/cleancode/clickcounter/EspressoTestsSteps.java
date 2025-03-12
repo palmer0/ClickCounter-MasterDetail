@@ -19,15 +19,8 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 
-public class ClickCounterRobot {
+public class EspressoTestsSteps {
 
-    /*
-    private ActivityTestRule rule;
-
-    public ClickCounterRobot(ActivityTestRule<MasterActivity> rule) {
-        this.rule = rule;
-    }
-    */
 
     private static Matcher<View> withListSize(final int size) {
 
